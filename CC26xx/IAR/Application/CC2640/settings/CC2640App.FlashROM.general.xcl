@@ -1,0 +1,15 @@
+"E:\Program x86\IAR Systems\EW7.2\arm\bin\armproc.dll" 
+
+"E:\Program x86\IAR Systems\EW7.2\arm\bin\armxds100.dll" 
+
+"C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\FlashROM\Exe\SimpleBLEPeripheralAppFlashROM.out" 
+
+--plugin "E:\Program x86\IAR Systems\EW7.2\arm\bin\armbat.dll" 
+
+--device_macro "E:\Program x86\IAR Systems\EW7.2\arm\config\debugger\TexasInstruments\CC26xx.dmac" 
+
+--flash_loader "E:\Program x86\IAR Systems\EW7.2\arm\config\flashloader\TexasInstruments\FlashCC26xxF128RAM20.board" 
+
+
+
+
