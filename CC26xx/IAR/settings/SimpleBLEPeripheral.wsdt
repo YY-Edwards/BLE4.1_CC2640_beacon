@@ -13,7 +13,7 @@
     <Static>
       <Workspace>
         <ColumnWidths>
-          <Column0>204</Column0>
+          <Column0>266</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
@@ -25,6 +25,12 @@
         <ColumnWidth2>304</ColumnWidth2>
         <ColumnWidth3>76</ColumnWidth3>
       </Build>
+      <Find-in-Files>
+        <ColumnWidth0>467</ColumnWidth0>
+        <ColumnWidth1>77</ColumnWidth1>
+        <ColumnWidth2>701</ColumnWidth2>
+        <ColumnWidth3>311</ColumnWidth3>
+      </Find-in-Files>
     </Static>
     <Windows>
       <Wnd3>
@@ -37,7 +43,7 @@
               <NodeDict>
                 <ExpandedNode>&lt;ws&gt;</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640App</ExpandedNode>
-                <ExpandedNode>&lt;ws&gt;/CC2640App/Startup</ExpandedNode>
+                <ExpandedNode>&lt;ws&gt;/CC2640App/ICallBLE</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640Stack</ExpandedNode>
               </NodeDict>
             </Session>
@@ -51,6 +57,12 @@
             <Identity>TabID-12160-32437</Identity>
             <TabName>Build</TabName>
             <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-13876-7415</Identity>
+            <TabName>Find in Files</TabName>
+            <Factory>Find-in-Files</Factory>
             <Session/>
           </Tab>
         </Tabs>
@@ -68,10 +80,106 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>76</YPos2>
-          <SelStart2>0</SelStart2>
-          <SelEnd2>0</SelEnd2>
+          <SelStart2>3486</SelStart2>
+          <SelEnd2>3486</SelEnd2>
         </Tab>
-        <ActiveTab>0</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\Application\simpleBLEPeripheral.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>74</YPos2>
+          <SelStart2>3595</SelStart2>
+          <SelEnd2>3595</SelEnd2>
+        </Tab>
+        <ActiveTab>1</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\hci.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>248</YPos2>
+          <SelStart2>15482</SelStart2>
+          <SelEnd2>15504</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\ICall\Application\ICallBleAPI.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>5199</YPos2>
+          <SelStart2>187095</SelStart2>
+          <SelEnd2>187102</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\ICall\Include\bleUserConfig.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>246</YPos2>
+          <SelStart2>1182</SelStart2>
+          <SelEnd2>1182</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\Roles\CC26xx\peripheral.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>1113</YPos2>
+          <SelStart2>35373</SelStart2>
+          <SelEnd2>35373</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Include\gapgattserver.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>50</YPos2>
+          <SelStart2>3323</SelStart2>
+          <SelEnd2>3346</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gap.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>277</YPos2>
+          <SelStart2>20920</SelStart2>
+          <SelEnd2>20940</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\controller\CC26xx\include\ll.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>330</YPos2>
+          <SelStart2>20014</SelStart2>
+          <SelEnd2>20035</SelEnd2>
+        </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
       <Sizes>
@@ -99,16 +207,16 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>551</Bottom>
-                <Right>295</Right>
+                <Bottom>595</Bottom>
+                <Right>340</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>200</xscreen>
                 <yscreen>200</yscreen>
                 <sizeHorzCX>126502</sizeHorzCX>
                 <sizeHorzCY>222469</sizeHorzCY>
-                <sizeVertCX>187856</sizeVertCX>
-                <sizeVertCY>615128</sizeVertCY>
+                <sizeVertCX>216319</sizeVertCX>
+                <sizeVertCY>664071</sizeVertCY>
               </Rect>
             </Wnd3>
           </Sizes>
@@ -126,14 +234,14 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>303</Bottom>
+                <Bottom>259</Bottom>
                 <Right>1583</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>1585</xscreen>
-                <yscreen>305</yscreen>
+                <yscreen>261</yscreen>
                 <sizeHorzCX>1002530</sizeHorzCX>
-                <sizeHorzCY>339266</sizeHorzCY>
+                <sizeHorzCY>290323</sizeHorzCY>
                 <sizeVertCX>126502</sizeVertCX>
                 <sizeVertCY>222469</sizeVertCY>
               </Rect>

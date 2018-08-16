@@ -83,7 +83,7 @@
  * CONSTANTS
  */
 // Advertising interval when device is discoverable (units of 625us, 160=100ms)
-#define DEFAULT_ADVERTISING_INTERVAL          160
+#define DEFAULT_ADVERTISING_INTERVAL          480//300ms;
 
 // Limited discoverable mode advertises for 30.72s, and then stops
 // General discoverable mode advertises indefinitely
@@ -189,27 +189,43 @@ Char sbpTaskStack[SBP_TASK_STACK_SIZE];
 static uint8_t scanRspData[] =
 {
   // complete name
-  0x14,   // length of this data
+  //0x14,   // length of this data
+  0x09,
   GAP_ADTYPE_LOCAL_NAME_COMPLETE,
-  0x53,   // 'S'
-  0x69,   // 'i'
-  0x6d,   // 'm'
-  0x70,   // 'p'
-  0x6c,   // 'l'
-  0x65,   // 'e'
-  0x42,   // 'B'
-  0x4c,   // 'L'
-  0x45,   // 'E'
-  0x50,   // 'P'
-  0x65,   // 'e'
-  0x72,   // 'r'
-  0x69,   // 'i'
-  0x70,   // 'p'
-  0x68,   // 'h'
-  0x65,   // 'e'
-  0x72,   // 'r'
-  0x61,   // 'a'
-  0x6c,   // 'l'
+  0x6A,//'j'
+  0x68,//'h'
+  0x62,//'b'
+  0x65,//'e'
+  0x61,//'a'
+  0x63,//'c'
+  0x6f,//'o'
+  0x6e,//'n'
+//  0x53,   // 'S'
+//  0x69,   // 'i'
+//  0x6d,   // 'm'
+//  0x70,   // 'p'
+//  0x6c,   // 'l'
+//  0x65,   // 'e'
+//  0x42,   // 'B'
+//  0x4c,   // 'L'
+//  0x45,   // 'E'
+//  0x50,   // 'P'
+//  0x65,   // 'e'
+//  0x72,   // 'r'
+//  0x69,   // 'i'
+//  0x70,   // 'p'
+//  0x68,   // 'h'
+//  0x65,   // 'e'
+//  0x72,   // 'r'
+//  0x61,   // 'a'
+//  0x6c,   // 'l'
+    
+  //Advertising Interval
+  0x03,   // length of this data
+  GAP_ADTYPE_ADV_INTERVAL,
+  LO_UINT16(DEFAULT_ADVERTISING_INTERVAL),//300ms
+  HI_UINT16(DEFAULT_ADVERTISING_INTERVAL),
+  //0       // 0dBm 
 
   // connection interval range
   0x05,   // length of this data
@@ -222,7 +238,8 @@ static uint8_t scanRspData[] =
   // Tx power level
   0x02,   // length of this data
   GAP_ADTYPE_POWER_LEVEL,
-  0       // 0dBm
+  (HCI_EXT_TX_POWER_5_DBM - HCI_EXT_TX_POWER_0_DBM)//5dBm
+  //0       // 0dBm
 };
 
 // GAP - Advertisement data (max size = 31 bytes, though this is
@@ -236,21 +253,57 @@ static uint8_t advertData[] =
   GAP_ADTYPE_FLAGS,
   DEFAULT_DISCOVERABLE_MODE | GAP_ADTYPE_FLAGS_BREDR_NOT_SUPPORTED,
 
-  // service UUID, to notify central devices what services are included
-  // in this peripheral
-  0x03,   // length of this data
-  GAP_ADTYPE_16BIT_MORE,      // some of the UUID's, but not all
-#ifdef FEATURE_OAD
-  LO_UINT16(OAD_SERVICE_UUID),
-  HI_UINT16(OAD_SERVICE_UUID)
-#else
-  LO_UINT16(SIMPLEPROFILE_SERV_UUID),
-  HI_UINT16(SIMPLEPROFILE_SERV_UUID),
-#endif //!FEATURE_OAD
+    // 25 byte beacon advertisement data
+  // Preamble: Company ID - 0x000D for TI, refer to https://www.bluetooth.org/en-us/specification/assigned-numbers/company-identifiers
+  // Data type: Beacon (0x02)
+  // Data length: 0x15
+  // UUID: 50dcb6f6-915a-4142-a6fe-fda7b4418609 (jihua beacon)
+  // Major: 10 (0x000A)
+  // Minor: 13 (0x000D)
+  // Measured Power: -59 (0xc5)
+  0x1A, // length of this data including the data type byte
+  GAP_ADTYPE_MANUFACTURER_SPECIFIC, // manufacturer specific adv data type
+  0x0D, // Company ID - Fixed
+  0x00, // Company ID - Fixed
+  0x02, // Data Type - Fixed
+  0x15, // Data Length - Fixed
+  0x50, // UUID - Variable based on different use cases/applications
+  0xdc, // UUID
+  0xb6, // UUID
+  0xf6, // UUID
+  0x91, // UUID
+  0x5a, // UUID
+  0x41, // UUID
+  0x42, // UUID
+  0xa6, // UUID
+  0xfe, // UUID
+  0xfd, // UUID
+  0xa7, // UUID
+  0xb4, // UUID
+  0x41, // UUID
+  0x86, // UUID
+  0x09, // UUID
+  0x00, // Major
+  0x0A, // Major
+  0x00, // Minor
+  0x0D, // Minor
+  0xc5  // Power - The 2's complement of the calibrated Tx Power
+  
+//  // service UUID, to notify central devices what services are included
+//  // in this peripheral
+//  0x03,   // length of this data
+//  GAP_ADTYPE_16BIT_MORE,      // some of the UUID's, but not all
+//#ifdef FEATURE_OAD
+//  LO_UINT16(OAD_SERVICE_UUID),
+//  HI_UINT16(OAD_SERVICE_UUID)
+//#else
+//  LO_UINT16(SIMPLEPROFILE_SERV_UUID),
+//  HI_UINT16(SIMPLEPROFILE_SERV_UUID),
+//#endif //!FEATURE_OAD
 };
 
 // GAP GATT Attributes
-static uint8_t attDeviceName[GAP_DEVICE_NAME_LEN] = "Simple BLE Peripheral";
+static uint8_t attDeviceName[GAP_DEVICE_NAME_LEN] = "jhbeacon";
 
 // Globals used for ATT Response retransmission
 static gattMsgEvent_t *pAttRsp = NULL;
@@ -433,8 +486,13 @@ static void SimpleBLEPeripheral_init(void)
   }
 
   // Set the GAP Characteristics
-  GGS_SetParameter(GGS_DEVICE_NAME_ATT, GAP_DEVICE_NAME_LEN, attDeviceName);
+  GGS_SetParameter(GGS_DEVICE_NAME_ATT, sizeof(attDeviceName), attDeviceName);
 
+  //设置发射功率：5dbm
+  {
+    HCI_EXT_SetTxPowerCmd(HCI_EXT_TX_POWER_5_DBM);
+  }
+  
   // Set advertising interval
   {
     uint16_t advInt = DEFAULT_ADVERTISING_INTERVAL;
