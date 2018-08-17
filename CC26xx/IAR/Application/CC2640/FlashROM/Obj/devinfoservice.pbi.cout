@@ -60,6 +60,8 @@ C:\ti\tirtos_simplelink_2_13_00_06\packages
 -I
 C:\ti\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS
 -I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\custom_profile\beacon
+-I
 E:\Program x86\IAR Systems\EW7.2\arm\inc
 -I
 E:\Program x86\IAR Systems\EW7.2\arm\inc\c
@@ -115,6 +117,8 @@ C:\ti\tirtos_simplelink_2_13_00_06\products\cc26xxware_2_21_01_15600
 C:\ti\tirtos_simplelink_2_13_00_06\packages
 -I
 C:\ti\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon
 -DUSE_ICALL=1
 -DPOWER_SAVING=1
 -DHEAPMGR_SIZE=2672

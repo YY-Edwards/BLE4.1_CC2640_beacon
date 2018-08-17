@@ -11,7 +11,8 @@ ByteLimit=50
 [Disassemble mode]
 mode=0
 [Breakpoints]
-Count=0
+Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.658.1" 1 0 0 0 "" 0 "" 0
+Count=1
 [Aliases]
 Count=0
 SuppressDialog=0

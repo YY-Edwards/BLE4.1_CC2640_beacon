@@ -542,7 +542,7 @@ static void SimpleBLEPeripheral_init(void)
 #ifndef FEATURE_OAD
   // Setup the SimpleProfile Characteristic Values
   {
-    uint8_t charValue1 = 1;
+    uint8_t charValue1 = 9;
     uint8_t charValue2 = 2;
     uint8_t charValue3 = 3;
     uint8_t charValue4 = 4;
