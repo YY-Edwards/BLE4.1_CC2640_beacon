@@ -13,7 +13,7 @@
     <Static>
       <Workspace>
         <ColumnWidths>
-          <Column0>266</Column0>
+          <Column0>188</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
@@ -26,11 +26,62 @@
         <ColumnWidth3>76</ColumnWidth3>
       </Build>
       <Find-in-Files>
+        <PreferedWindows>
+          <Position>3</Position>
+          <ScreenPosX>0</ScreenPosX>
+          <ScreenPosY>0</ScreenPosY>
+          <Windows>
+            <Window>
+              <Factory>Build</Factory>
+            </Window>
+          </Windows>
+        </PreferedWindows>
         <ColumnWidth0>467</ColumnWidth0>
         <ColumnWidth1>77</ColumnWidth1>
         <ColumnWidth2>701</ColumnWidth2>
         <ColumnWidth3>311</ColumnWidth3>
       </Find-in-Files>
+      <Find-All-References>
+        <PreferedWindows>
+          <Position>3</Position>
+          <ScreenPosX>0</ScreenPosX>
+          <ScreenPosY>0</ScreenPosY>
+          <Windows>
+            <Window>
+              <Factory>Build</Factory>
+            </Window>
+            <Window>
+              <Factory>Find-in-Files</Factory>
+            </Window>
+          </Windows>
+        </PreferedWindows>
+        <ColumnWidth0>511</ColumnWidth0>
+        <ColumnWidth1>73</ColumnWidth1>
+        <ColumnWidth2>876</ColumnWidth2>
+      </Find-All-References>
+      <PROJECT_GUI_CALL_GRAPH>
+        <PreferedWindows>
+          <Position>3</Position>
+          <ScreenPosX>0</ScreenPosX>
+          <ScreenPosY>0</ScreenPosY>
+          <Windows/>
+        </PreferedWindows>
+        <col-names>
+          <item>File</item>
+          <item>Function</item>
+          <item>Line</item>
+        </col-names>
+        <col-widths>
+          <item>200</item>
+          <item>700</item>
+          <item>100</item>
+        </col-widths>
+      </PROJECT_GUI_CALL_GRAPH>
+      <Select-Ambiguous-Definitions>
+        <ColumnWidth0>511</ColumnWidth0>
+        <ColumnWidth1>73</ColumnWidth1>
+        <ColumnWidth2>876</ColumnWidth2>
+      </Select-Ambiguous-Definitions>
     </Static>
     <Windows>
       <Wnd3>
@@ -43,7 +94,8 @@
               <NodeDict>
                 <ExpandedNode>&lt;ws&gt;</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640App</ExpandedNode>
-                <ExpandedNode>&lt;ws&gt;/CC2640App/ICallBLE</ExpandedNode>
+                <ExpandedNode>&lt;ws&gt;/CC2640App/PROFILES</ExpandedNode>
+                <ExpandedNode>&lt;ws&gt;/CC2640App/Startup</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640Stack</ExpandedNode>
               </NodeDict>
             </Session>
@@ -60,17 +112,53 @@
             <Session/>
           </Tab>
           <Tab>
-            <Identity>TabID-13876-7415</Identity>
+            <Identity>TabID-26472-24415</Identity>
             <TabName>Find in Files</TabName>
             <Factory>Find-in-Files</Factory>
             <Session/>
           </Tab>
+          <Tab>
+            <Identity>TabID-19719-28226</Identity>
+            <TabName>Ambiguous Definitions</TabName>
+            <Factory>Select-Ambiguous-Definitions</Factory>
+            <Session/>
+          </Tab>
+          <Tab>
+            <Identity>TabID-31200-3635</Identity>
+            <TabName>References</TabName>
+            <Factory>Find-All-References</Factory>
+            <Session/>
+          </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
+        <SelectedTab>3</SelectedTab>
       </Wnd4>
     </Windows>
     <Editor>
       <Pane>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\Roles\CC26xx\peripheral.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>68</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\Keys\CC26xx\simplekeys.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>155</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
+        </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\Source\Application\main.c</Filename>
@@ -79,9 +167,129 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>76</YPos2>
-          <SelStart2>3486</SelStart2>
-          <SelEnd2>3486</SelEnd2>
+          <YPos2>88</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Include\gattservapp.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>188</YPos2>
+          <SelStart2>9897</SelStart2>
+          <SelEnd2>9897</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\host\gatt_uuid.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>100</YPos2>
+          <SelStart2>3935</SelStart2>
+          <SelEnd2>3935</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gatt_uuid.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>57</YPos2>
+          <SelStart2>3394</SelStart2>
+          <SelEnd2>3394</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\osal\include\OSAL.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>278</YPos2>
+          <SelStart2>8348</SelStart2>
+          <SelEnd2>8348</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\SimpleProfile\simpleGATTprofile.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>79</YPos2>
+          <SelStart2>4306</SelStart2>
+          <SelEnd2>4306</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\DevInfo\CC26xx\devinfoservice.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>631</YPos2>
+          <SelStart2>19123</SelStart2>
+          <SelEnd2>19123</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\OAD\CC26xx\oadResetService.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>66</YPos2>
+          <SelStart2>3289</SelStart2>
+          <SelEnd2>3289</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\OAD\CC26xx\oad.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>73</YPos2>
+          <SelStart2>3463</SelStart2>
+          <SelEnd2>3463</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\custom_profile\beacon\beaconconfig_profile.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>439</YPos2>
+          <SelStart2>14176</SelStart2>
+          <SelEnd2>14176</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\custom_profile\beacon\beaconconfig_profile.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>82</YPos2>
+          <SelStart2>3146</SelStart2>
+          <SelEnd2>3180</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -91,22 +299,22 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>74</YPos2>
-          <SelStart2>3595</SelStart2>
-          <SelEnd2>3595</SelEnd2>
+          <YPos2>1114</YPos2>
+          <SelStart2>36416</SelStart2>
+          <SelEnd2>36416</SelEnd2>
         </Tab>
-        <ActiveTab>1</ActiveTab>
+        <ActiveTab>13</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\hci.h</Filename>
+          <Filename>$WS_DIR$\..\..\..\Profiles\GATT\gattservapp_util.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>248</YPos2>
-          <SelStart2>15482</SelStart2>
-          <SelEnd2>15504</SelEnd2>
+          <YPos2>278</YPos2>
+          <SelStart2>10558</SelStart2>
+          <SelEnd2>10558</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -116,69 +324,45 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>5199</YPos2>
-          <SelStart2>187095</SelStart2>
-          <SelEnd2>187102</SelEnd2>
+          <YPos2>1814</YPos2>
+          <SelStart2>69765</SelStart2>
+          <SelEnd2>69765</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\ICall\Include\bleUserConfig.h</Filename>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\att.h</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>246</YPos2>
-          <SelStart2>1182</SelStart2>
-          <SelEnd2>1182</SelEnd2>
+          <YPos2>83</YPos2>
+          <SelStart2>4931</SelStart2>
+          <SelEnd2>4931</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\Profiles\Roles\CC26xx\peripheral.c</Filename>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\bcomdef.h</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>1113</YPos2>
-          <SelStart2>35373</SelStart2>
-          <SelEnd2>35373</SelEnd2>
+          <YPos2>233</YPos2>
+          <SelStart2>10713</SelStart2>
+          <SelEnd2>10713</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\Include\gapgattserver.h</Filename>
+          <Filename>$WS_DIR$\..\..\..\Profiles\SimpleProfile\CC26xx\simpleGATTprofile.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>50</YPos2>
-          <SelStart2>3323</SelStart2>
-          <SelEnd2>3346</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gap.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>277</YPos2>
-          <SelStart2>20920</SelStart2>
-          <SelEnd2>20940</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\controller\CC26xx\include\ll.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>330</YPos2>
-          <SelStart2>20014</SelStart2>
-          <SelEnd2>20035</SelEnd2>
+          <YPos2>509</YPos2>
+          <SelStart2>16159</SelStart2>
+          <SelEnd2>16159</SelEnd2>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
@@ -207,16 +391,16 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>595</Bottom>
-                <Right>340</Right>
+                <Bottom>631</Bottom>
+                <Right>279</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>200</xscreen>
                 <yscreen>200</yscreen>
-                <sizeHorzCX>126502</sizeHorzCX>
-                <sizeHorzCY>222469</sizeHorzCY>
-                <sizeVertCX>216319</sizeVertCX>
-                <sizeVertCY>664071</sizeVertCY>
+                <sizeHorzCX>127470</sizeHorzCX>
+                <sizeHorzCY>236967</sizeHorzCY>
+                <sizeVertCX>179095</sizeVertCX>
+                <sizeVertCY>750000</sizeVertCY>
               </Rect>
             </Wnd3>
           </Sizes>
@@ -234,16 +418,16 @@
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>259</Bottom>
-                <Right>1583</Right>
+                <Bottom>168</Bottom>
+                <Right>1571</Right>
                 <x>-2</x>
                 <y>-2</y>
-                <xscreen>1585</xscreen>
-                <yscreen>261</yscreen>
-                <sizeHorzCX>1002530</sizeHorzCX>
-                <sizeHorzCY>290323</sizeHorzCY>
-                <sizeVertCX>126502</sizeVertCX>
-                <sizeVertCY>222469</sizeVertCY>
+                <xscreen>1573</xscreen>
+                <yscreen>170</yscreen>
+                <sizeHorzCX>1002549</sizeHorzCX>
+                <sizeHorzCY>201422</sizeHorzCY>
+                <sizeVertCX>127470</sizeVertCX>
+                <sizeVertCY>236967</sizeVertCY>
               </Rect>
             </Wnd4>
           </Sizes>

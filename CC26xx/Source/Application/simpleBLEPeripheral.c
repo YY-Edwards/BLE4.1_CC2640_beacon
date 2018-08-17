@@ -54,6 +54,9 @@
 #include "gattservapp.h"
 #include "devinfoservice.h"
 #include "simpleGATTprofile.h"
+  
+//新增beacon_profile
+#include "beaconconfig_profile.h"   
 
 #if defined(SENSORTAG_HW)
 #include "bsp_spi.h"
@@ -141,6 +144,8 @@
 #define SBP_CHAR_CHANGE_EVT                   0x0002
 #define SBP_PERIODIC_EVT                      0x0004
 #define SBP_CONN_EVT_END_EVT                  0x0008
+//添加服务处理事件宏
+#define SBP_BEACON_CHAR_CHANGE_EVT            0x0010  
 
 /*********************************************************************
  * TYPEDEFS
@@ -338,6 +343,10 @@ void SimpleBLEPeripheral_processOadWriteCB(uint8_t event, uint16_t connHandle,
                                            uint8_t *pData);
 #endif //FEATURE_OAD
 
+//声明服务的回调函数和处理函数
+static void BeaconPRofileCharChangeCB(uint8_t paramID);
+static void BeaconProfile_processCharValueChangeEvt(uint8_t paramID);
+
 static void SimpleBLEPeripheral_clockHandler(UArg arg);
 
 
@@ -365,6 +374,12 @@ static simpleProfileCBs_t SimpleBLEPeripheral_simpleProfileCBs =
 {
   SimpleBLEPeripheral_charValueChangeCB // Characteristic value change callback
 };
+//注册回调函数
+static beaconconfigProfileCBs_t SimpleBLEPeripheral_BeaconProfileCBs =
+{
+  BeaconPRofileCharChangeCB // Characteristic value change callback
+};
+
 #endif //!FEATURE_OAD
 
 #ifdef FEATURE_OAD
@@ -525,7 +540,8 @@ static void SimpleBLEPeripheral_init(void)
   DevInfo_AddService();                        // Device Information Service
 
 #ifndef FEATURE_OAD
-  SimpleProfile_AddService(GATT_ALL_SERVICES); // Simple GATT Profile
+  BeaconConfigProfile_AddService(GATT_ALL_SERVICES);//add beacon service
+  //SimpleProfile_AddService(GATT_ALL_SERVICES); // Simple GATT Profile
 #endif //!FEATURE_OAD
 
 #ifdef FEATURE_OAD
@@ -540,28 +556,46 @@ static void SimpleBLEPeripheral_init(void)
   
   
 #ifndef FEATURE_OAD
-  // Setup the SimpleProfile Characteristic Values
-  {
-    uint8_t charValue1 = 9;
-    uint8_t charValue2 = 2;
-    uint8_t charValue3 = 3;
-    uint8_t charValue4 = 4;
-    uint8_t charValue5[SIMPLEPROFILE_CHAR5_LEN] = { 1, 2, 3, 4, 5 };
-
-    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR1, sizeof(uint8_t),
-                               &charValue1);
-    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR2, sizeof(uint8_t),
-                               &charValue2);
-    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR3, sizeof(uint8_t),
-                               &charValue3);
-    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR4, sizeof(uint8_t),
-                               &charValue4);
-    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR5, SIMPLEPROFILE_CHAR5_LEN,
-                               charValue5);
-  }
-
-  // Register callback with SimpleGATTprofile
-  SimpleProfile_RegisterAppCBs(&SimpleBLEPeripheral_simpleProfileCBs);
+  
+  //init char value
+  uint8_t BeaconProfile_char1value[21] = { 1, 2, 3, 4, 5 };
+  
+  BeaconConfigProfile_SetParameter(BEACONCONFIGPROFILE_CHAR1, sizeof(uint8_t),
+                                   &BeaconProfile_char1value[0]);
+  BeaconConfigProfile_SetParameter(BEACONCONFIGPROFILE_CHAR2, sizeof(uint8_t),
+                                   &BeaconProfile_char1value[1]);
+  BeaconConfigProfile_SetParameter(BEACONCONFIGPROFILE_CHAR3, sizeof(uint8_t),
+                             &BeaconProfile_char1value[2]);
+  BeaconConfigProfile_SetParameter(BEACONCONFIGPROFILE_CHAR4, sizeof(uint8_t),
+                             &BeaconProfile_char1value[3]);
+  BeaconConfigProfile_SetParameter(BEACONCONFIGPROFILE_CHAR5, sizeof(uint8_t),
+                             &BeaconProfile_char1value[4]);
+    
+  //Register callback with BeaconConfigProfile
+  BeaconConfigProfile_RegisterAppCBs(&SimpleBLEPeripheral_BeaconProfileCBs);   
+  
+//  // Setup the SimpleProfile Characteristic Values
+//  {
+//    uint8_t charValue1 = 9;
+//    uint8_t charValue2 = 2;
+//    uint8_t charValue3 = 3;
+//    uint8_t charValue4 = 4;
+//    uint8_t charValue5[SIMPLEPROFILE_CHAR5_LEN] = { 1, 2, 3, 4, 5 };
+//
+//    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR1, sizeof(uint8_t),
+//                               &charValue1);
+//    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR2, sizeof(uint8_t),
+//                               &charValue2);
+//    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR3, sizeof(uint8_t),
+//                               &charValue3);
+//    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR4, sizeof(uint8_t),
+//                               &charValue4);
+//    SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR5, SIMPLEPROFILE_CHAR5_LEN,
+//                               charValue5);
+//  }
+//
+//  // Register callback with SimpleGATTprofile
+//  SimpleProfile_RegisterAppCBs(&SimpleBLEPeripheral_simpleProfileCBs);
 #endif //!FEATURE_OAD
   
   // Start the Device
@@ -886,6 +920,13 @@ static void SimpleBLEPeripheral_processAppMsg(sbpEvt_t *pMsg)
     case SBP_CHAR_CHANGE_EVT:
       SimpleBLEPeripheral_processCharValueChangeEvt(pMsg->hdr.state);
       break;
+    
+    //添加服务处理事件的处理部分  
+    case SBP_BEACON_CHAR_CHANGE_EVT:
+      
+      BeaconProfile_processCharValueChangeEvt(pMsg->hdr.state);
+      
+      break;
 
     default:
       // Do nothing.
@@ -1068,6 +1109,36 @@ static void SimpleBLEPeripheral_processStateChangeEvt(gaprole_States_t newState)
 }
 
 #ifndef FEATURE_OAD
+//定义服务的回调函数
+static void BeaconPRofileCharChangeCB(uint8_t paramID)
+{
+  //传递注册的事件
+  SimpleBLEPeripheral_enqueueMsg(SBP_BEACON_CHAR_CHANGE_EVT, paramID);
+}
+//定义服务的处理函数
+
+static void BeaconProfile_processCharValueChangeEvt(uint8_t paramID)
+{
+  uint8_t newValue[30]={0};
+
+  switch(paramID)
+  {
+    case BEACONCONFIGPROFILE_CHAR2:
+      
+      BeaconConfigProfile_GetParameter(BEACONCONFIGPROFILE_CHAR2, &newValue);
+     
+
+      break;
+
+
+    default:
+      // should not reach here!
+      break;
+  }
+  
+
+}
+
 /*********************************************************************
  * @fn      SimpleBLEPeripheral_charValueChangeCB
  *
