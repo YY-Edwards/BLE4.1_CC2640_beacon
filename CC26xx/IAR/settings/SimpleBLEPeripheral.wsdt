@@ -13,7 +13,7 @@
     <Static>
       <Workspace>
         <ColumnWidths>
-          <Column0>188</Column0>
+          <Column0>224</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
@@ -82,9 +82,10 @@
         <ColumnWidth1>73</ColumnWidth1>
         <ColumnWidth2>876</ColumnWidth2>
       </Select-Ambiguous-Definitions>
+      <TerminalIO/>
     </Static>
     <Windows>
-      <Wnd3>
+      <Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-26046-32382</Identity>
@@ -94,7 +95,6 @@
               <NodeDict>
                 <ExpandedNode>&lt;ws&gt;</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640App</ExpandedNode>
-                <ExpandedNode>&lt;ws&gt;/CC2640App/PROFILES</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640App/Startup</ExpandedNode>
                 <ExpandedNode>&lt;ws&gt;/CC2640Stack</ExpandedNode>
               </NodeDict>
@@ -102,8 +102,8 @@
           </Tab>
         </Tabs>
         <SelectedTab>0</SelectedTab>
-      </Wnd3>
-      <Wnd4>
+      </Wnd2>
+      <Wnd3>
         <Tabs>
           <Tab>
             <Identity>TabID-12160-32437</Identity>
@@ -129,9 +129,14 @@
             <Factory>Find-All-References</Factory>
             <Session/>
           </Tab>
+          <Tab>
+            <Identity>TabID-18515-19880</Identity>
+            <TabName>Breakpoints</TabName>
+            <Factory>Breakpoints</Factory>
+          </Tab>
         </Tabs>
-        <SelectedTab>3</SelectedTab>
-      </Wnd4>
+        <SelectedTab>0</SelectedTab>
+      </Wnd3>
     </Windows>
     <Editor>
       <Pane>
@@ -158,30 +163,6 @@
           <YPos2>155</YPos2>
           <SelStart2>0</SelStart2>
           <SelEnd2>0</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Source\Application\main.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>88</YPos2>
-          <SelStart2>0</SelStart2>
-          <SelEnd2>0</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\Include\gattservapp.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>188</YPos2>
-          <SelStart2>9897</SelStart2>
-          <SelEnd2>9897</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -275,9 +256,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>439</YPos2>
-          <SelStart2>14176</SelStart2>
-          <SelEnd2>14176</SelEnd2>
+          <YPos2>634</YPos2>
+          <SelStart2>20053</SelStart2>
+          <SelEnd2>20053</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -287,9 +268,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>82</YPos2>
-          <SelStart2>3146</SelStart2>
-          <SelEnd2>3180</SelEnd2>
+          <YPos2>58</YPos2>
+          <SelStart2>2352</SelStart2>
+          <SelEnd2>2352</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -299,11 +280,11 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>1114</YPos2>
-          <SelStart2>36416</SelStart2>
-          <SelEnd2>36416</SelEnd2>
+          <YPos2>959</YPos2>
+          <SelStart2>31674</SelStart2>
+          <SelEnd2>31674</SelEnd2>
         </Tab>
-        <ActiveTab>13</ActiveTab>
+        <ActiveTab>11</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\..\Profiles\GATT\gattservapp_util.c</Filename>
@@ -312,7 +293,7 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>278</YPos2>
+          <YPos2>402</YPos2>
           <SelStart2>10558</SelStart2>
           <SelEnd2>10558</SelEnd2>
         </Tab>
@@ -336,9 +317,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>83</YPos2>
-          <SelStart2>4931</SelStart2>
-          <SelEnd2>4931</SelEnd2>
+          <YPos2>145</YPos2>
+          <SelStart2>8144</SelStart2>
+          <SelEnd2>8170</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -360,9 +341,45 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>509</YPos2>
-          <SelStart2>16159</SelStart2>
-          <SelEnd2>16159</SelEnd2>
+          <YPos2>176</YPos2>
+          <SelStart2>6947</SelStart2>
+          <SelEnd2>6947</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\common\cc26xx\util.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>50</YPos2>
+          <SelStart2>3031</SelStart2>
+          <SelEnd2>3031</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Include\gattservapp.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>102</YPos2>
+          <SelStart2>5326</SelStart2>
+          <SelEnd2>5348</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\Application\main.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>68</YPos2>
+          <SelStart2>2943</SelStart2>
+          <SelEnd2>2943</SelEnd2>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
@@ -383,26 +400,32 @@
             </Toolbar-009B6318>
           </Sizes>
         </Row0>
+        <Row1>
+          <Sizes/>
+        </Row1>
+        <Row2>
+          <Sizes/>
+        </Row2>
       </Top>
       <Left>
         <Row0>
           <Sizes>
-            <Wnd3>
+            <Wnd2>
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>631</Bottom>
-                <Right>279</Right>
+                <Bottom>545</Bottom>
+                <Right>315</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>200</xscreen>
                 <yscreen>200</yscreen>
                 <sizeHorzCX>127470</sizeHorzCX>
                 <sizeHorzCY>236967</sizeHorzCY>
-                <sizeVertCX>179095</sizeVertCX>
-                <sizeVertCY>750000</sizeVertCY>
+                <sizeVertCX>202040</sizeVertCX>
+                <sizeVertCY>648104</sizeVertCY>
               </Rect>
-            </Wnd3>
+            </Wnd2>
           </Sizes>
         </Row0>
       </Left>
@@ -414,22 +437,22 @@
       <Bottom>
         <Row0>
           <Sizes>
-            <Wnd4>
+            <Wnd3>
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>168</Bottom>
+                <Bottom>254</Bottom>
                 <Right>1571</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>1573</xscreen>
-                <yscreen>170</yscreen>
+                <yscreen>256</yscreen>
                 <sizeHorzCX>1002549</sizeHorzCX>
-                <sizeHorzCY>201422</sizeHorzCY>
+                <sizeHorzCY>303318</sizeHorzCY>
                 <sizeVertCX>127470</sizeVertCX>
                 <sizeVertCY>236967</sizeVertCY>
               </Rect>
-            </Wnd4>
+            </Wnd3>
           </Sizes>
         </Row0>
       </Bottom>

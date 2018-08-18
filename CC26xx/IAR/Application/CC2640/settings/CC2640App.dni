@@ -8,11 +8,36 @@ UseTrigger=1
 TriggerName=main
 LimitSize=0
 ByteLimit=50
+[xds100]
+xds100serialNo=061UNEZZ
+xds100foundProbes=
+xdsResetStyle=0
+xdsResetStrategy=3
+[DebugChecksum]
+Checksum=-340479855
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[struct_types]
+Fmt0=struct attAttribute_t-handle	4	0
 [Disassemble mode]
 mode=0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.658.1" 1 0 0 0 "" 0 "" 0
-Count=1
+Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.692.11" 1 0 0 0 "" 0 "" 0
+Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.645.3" 1 0 0 0 "" 0 "" 0
+Bp2=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.1116.3" 1 0 0 0 "" 0 "" 0
+Count=3
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0

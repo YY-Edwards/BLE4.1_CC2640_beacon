@@ -305,6 +305,7 @@
       <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
       <file>$PROJ_DIR$\FlashROM\List\SimpleBLEPeripheralAppFlashROM.map</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\packages\ti\drivers\lib\drivers_cc26xxware.arm3</file>
+      <file>$PROJ_DIR$\FlashROM\Obj\beaconconfig_profile.__cstat.et</file>
       <file>$PROJ_DIR$\FlashROM\Obj\beaconconfig_profile.pbi</file>
       <file>$PROJ_DIR$\FlashROM\Obj\beaconconfig_profile.o</file>
       <file>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.h</file>
@@ -342,7 +343,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 146 147 202 17 136 150 18 51 149 167 24 26 143 132 19 209 220 221 183 153 180 20 137 27 14 139 138 141 32 148 151 200 134</file>
+          <file> 148 19 141 202 27 17 149 150 151 167 14 139 138 136 32 20 146 200 221 183 153 180 137 18 24 26 143 132 51 147 209 220 134</file>
         </tool>
       </inputs>
     </file>
@@ -369,7 +370,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 146 169 14 209 183 19 139 24 149 166 17 27 136 51 151 150 167 153 20 137 18 26 143 132 147 134 138 141 32 148</file>
+          <file> 146 169 19 139 209 183 14 24 149 166 17 27 136 51 151 150 167 153 20 137 18 26 143 132 147 134 138 141 32 148</file>
         </tool>
       </inputs>
     </file>
@@ -396,7 +397,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 79 136 127 24 59 149 56 43 101 119 47 61 16 17 140 209 174 26 62 64 98 45 49 132 51 120 39 95 58 32 44 50 146 85 41 76 222 25 20 23 71 57 99 89 94 87 118 33 30 19 128 139 52 36 123 200 188 11 18 37 40 63 53 72 74 80 86 114 102 46 31 147 151 125 42 126 122 38 103 48 183 221 153 202 199 137 27 14 21 65 60 68 66 67 54 69 55 83 91 108 109 104 96 88 75 113 220 143 138 141 148 150 206 142 124 135 121 82 130 134</file>
+          <file> 56 63 52 46 39 27 43 47 17 146 174 21 74 59 136 143 95 19 37 40 45 16 58 53 108 32 124 140 42 76 222 60 64 57 61 87 96 88 51 36 141 148 20 150 149 206 49 31 139 200 188 11 14 62 68 71 72 101 98 119 79 75 102 113 50 220 132 138 142 135 121 41 48 82 130 38 103 183 221 153 202 199 137 18 24 26 25 23 65 66 67 54 69 55 83 91 99 109 104 80 86 94 89 114 118 33 30 44 147 209 151 128 120 125 126 85 122 123 127 134</file>
         </tool>
       </inputs>
     </file>
@@ -423,7 +424,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 24 26 17 150 139 138 136 32 183 18 141 148 19 149 167 143 132 51 27 14 147 209 20 146 151</file>
+          <file> 138 32 136 150 139 24 26 17 183 18 141 148 19 149 167 143 132 51 27 14 147 209 20 146 151</file>
         </tool>
       </inputs>
     </file>
@@ -450,7 +451,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 26 17 24 146 141 183 139 18 149 138 19 221 153 136 143 132 51 27 14 150 147 209 32 148 20 151</file>
+          <file> 18 17 146 149 138 183 139 24 26 141 19 221 153 136 143 132 51 27 14 150 147 209 32 148 20 151</file>
         </tool>
       </inputs>
     </file>
@@ -477,7 +478,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 19 30 145 18 14 46 24 27 51 152 17 26 32 144</file>
+          <file> 17 145 46 19 26 32 51 152 18 24 27 14 30 144</file>
         </tool>
       </inputs>
     </file>
@@ -504,7 +505,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 16 55 63 51 43 0 45 25 17 53 47 61 56 99 83 15 146 24 26 23 58 89 80 86 79 94 19 139 50 46 33 36 41 42 76 187 65 18 37 40 60 59 66 64 87 57 69 95 88 91 20 132 52 32 154 219 49 84 209 174 193 62 21 27 14 68 81 78 67 54 75 96 101 98 148 136 143 1 30 133 31 39 44 48</file>
+          <file> 58 16 63 51 18 56 43 66 0 45 25 17 37 40 64 47 57 61 99 83 15 146 87 89 80 86 79 94 19 139 50 46 33 36 41 42 76 187 65 24 26 23 60 59 53 95 88 91 20 132 52 32 154 219 49 84 209 174 193 62 21 27 14 68 81 78 67 54 69 55 75 96 101 98 148 136 143 1 30 133 31 39 44 48</file>
         </tool>
       </inputs>
     </file>
@@ -555,7 +556,7 @@
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 267 158 155 276 227 239 230 246 251 233 229 228 242 232 234 245 226 252 231 274 255 268 272 282 278 280 279</file>
+          <file> 267 158 155 276 285 227 239 230 246 251 233 229 228 242 232 234 245 226 252 231 274 255 268 272 282 278 280 279</file>
         </tool>
       </inputs>
     </file>
@@ -609,7 +610,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 32 43 47 77 16 56 19 65 57 83 79 53 99 63 44 76 59 67 109 30 24 26 17 45 55 68 94 87 95 88 102 49 42 219 103 21 18 51 70 37 40 69 64 80 86 54 91 114 108 104 75 33 36 39 46 186 111 73 25 20 27 14 23 100 92 61 60 58 62 66 96 101 98 119 89 118 15 31 41 116 113 48 52 50</file>
+          <file> 32 98 45 23 43 57 19 62 16 99 63 44 51 100 56 61 64 47 58 101 53 79 30 14 59 55 96 119 95 94 102 49 42 219 103 21 17 27 25 92 69 68 66 87 89 33 36 39 46 186 111 73 20 18 24 26 70 76 77 37 40 60 65 80 86 67 54 83 91 114 108 109 104 88 75 118 15 31 41 116 113 48 52 50</file>
         </tool>
       </inputs>
     </file>
@@ -632,7 +633,11 @@
       <inputs>
         <tool>
           <name>ICCARM</name>
-          <file> 28 22 157 134 19 17 18 27 14 24 26 20 137 102 16 25 21 23 51 45 47 37 43 40 63 119 99 59 65 61 56 58 68 66 64 60 62 53 67 57 69 55 54 79 96 80 86 95 108 94 87 88 75 89 109 104 103 114 113 118 222 206 146 136 139 132 143 149 138 141 147 209 32 148 135 140 142 121 120 125 41 39 46 30 42 52 126 50 31 44 36 85 82 49 122 123 130 127 48 33 128 124 183 150 151 205 153 169 180 174 202 200 220 11 199 188 186 223 219 15 187 116 111 73 70 100 76 83 101 91 98 92 77</file>
+          <file> 28 22 157 134 19 17 18 27 14 24 26 20 137 102 16 25 21 23 51 45 47 37 43 40 63 119 99 59 65 61 56 58 68 66 64 60 62 53 67 57 69 55 54 79 96 80 86 95 108 94 87 88 75 89 109 104 103 114 113 118 222 206 146 136 139 132 143 149 138 141 147 209 32 148 135 140 142 121 120 125 41 39 46 30 42 52 126 50 31 44 36 85 82 49 122 123 130 127 48 33 128 124 183 150 151 205 153 169 180 286 174 202 200 220 11 199 188 186 223 219 15 187 116 111 73 70 100 76 83 101 91 98 92 77</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32 45 89 47 31 51 56 61 63 99 149 121 25 188 19 16 60 59 102 41 50 151 153 17 27 57 94 132 136 36 53 95 174 187 119 43 58 55 96 79 209 143 52 48 30 39 82 46 146 87 183 180 11 223 14 20 23 65 66 64 69 118 128 140 147 42 49 130 200 70 103 222 205 169 286 202 199 186 219 116 137 18 24 26 108 109 104 21 37 40 62 68 67 54 80 86 88 75 114 113 206 142 124 135 139 138 141 148 120 125 126 85 122 44 123 127 33 150 220 15 76 77 101 98 134 111 73 100 92 83 91</file>
         </tool>
       </inputs>
     </file>
@@ -659,7 +664,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 64 51 15 99 36 63 61 56 37 54 47 79 109 197 9 45 58 59 16 49 103 196 6 24 26 17 92 95 113 32 19 87 25 18 65 43 57 101 98 89 108 104 114 193 139 30 33 50 46 42 137 4 102 76 209 216 8 3 21 20 27 14 23 66 100 96 67 91 5 53 148 132 133 31 7 40 62 60 68 94 73 70 77 69 55 80 86 83 88 75 119 118 154 219 48 52 39 41 44 134</file>
+          <file> 64 51 15 99 36 47 56 45 16 54 79 109 197 9 19 43 49 103 196 6 18 92 59 80 86 95 113 32 87 63 25 17 24 26 100 57 101 98 89 108 104 114 193 139 30 33 50 46 42 137 4 102 76 209 216 8 3 21 20 27 14 23 37 40 62 58 68 94 61 67 91 5 53 148 132 133 31 7 65 60 66 73 70 77 69 55 96 83 88 75 119 118 154 219 48 52 39 41 44 134</file>
         </tool>
       </inputs>
     </file>
@@ -713,7 +718,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 32 44 30 18 25 49 42 132 17 27 133 139 20 33 36 39 46 193 51 19 14 48 23 31 41 24 26 154 219 15 16 21 52 50</file>
+          <file> 32 44 30 25 49 42 132 17 18 27 133 139 20 33 36 39 46 193 51 19 14 48 23 31 41 24 26 154 219 15 16 21 52 50</file>
         </tool>
       </inputs>
     </file>
@@ -740,7 +745,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 39 19 139 36 18 146 11 209 135 121 31 222 154 17 32 132 136 149 142 51 41 46 52 200 205 129 24 26 148 20 147 150 206 124 120 85 44 50 183 153 202 199 137 27 14 220 143 138 141 151 128 140 125 42 126 122 123 127 33 49 134 48 30 82 130</file>
+          <file> 39 20 149 139 36 18 150 11 206 31 222 154 17 32 51 147 124 146 41 46 52 200 205 129 24 26 148 19 132 136 209 142 135 121 120 85 44 50 183 153 202 199 137 27 14 220 143 138 141 151 128 140 125 42 126 122 123 127 33 49 134 48 30 82 130</file>
         </tool>
       </inputs>
     </file>
@@ -749,144 +754,28 @@
       <outputs>
         <tool>
           <name>ICCARM</name>
-          <file> 284</file>
+          <file> 285</file>
         </tool>
         <tool>
           <name>BICOMP</name>
+          <file> 284</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
           <file> 283</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
+          <name>ICCARM</name>
+          <file> 28 22 157 134 19 17 18 27 14 24 26 20 137 146 136 139 132 51 143 149 138 141 147 209 32 148 221 150 151 183 167 153 202 200 220 286</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
-          <file> 17 136 202 147 149 150 20 18 51 146 200 167 19 137 24 26 143 132 209 151 221 183 153 285 27 14 139 138 141 32 148 220 134</file>
+          <file> 17 136 202 147 149 150 18 51 20 146 200 167 24 26 143 132 19 209 151 221 183 153 286 137 27 14 139 138 141 32 148 220 134</file>
         </tool>
       </inputs>
     </file>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\drivers\lcd\LCDDogm1286.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\SimpleProfile\CC26xx\simpleGATTprofile.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\DevInfo\CC26xx\devinfoservice.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\OAD\CC26xx\oad_target_internalFlash.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\Roles\CC26xx\peripheral.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\Keys\CC26xx\simplekeys.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\OAD\CC26xx\oadResetService.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\OAD\CC26xx\oad.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\OAD\CC26xx\oad_target_externalFlash.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\SensorTag\CC26xx\Source\Application\Board_patch\Board.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\..\..\Components\ble\host\gatt_uuid.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\Profiles\GATT\gattservapp_util.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\Config\ccfg_appBLE.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\Source\Application\main.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\boards\SRF06EB\Board.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\common\cc26xx\util.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\SensorTag\CC26xx\Source\Application\Board_patch\Devices\ext_flash.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\SensorTag\CC26xx\Source\Application\Board_patch\Interfaces\bsp_spi.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\common\cc26xx\board_lcd.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\Source\Application\simpleBLEPeripheral.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\drivers\pin\PINCC26XX.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\drivers\lcd\LCDDogm1286_util.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\..\..\Components\icall\ports\tirtos\ICall.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\drivers\SPI.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\..\..\Components\icall\ports\tirtos\ICallCC2650.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\ICall\Application\bleUserConfig.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\..\..\ICall\Application\ICallBleAPI.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\drivers\spi\SPICC26XXDMA.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$TI_RTOS_DRIVERS_BASE$\ti\drivers\dma\UDMACC26XX.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.c</name>
-      <tool>ICCARM</tool>
-    </forcedrebuild>
-    <forcedrebuild>
-      <name>[MULTI_TOOL]</name>
-      <tool>ILINK</tool>
-    </forcedrebuild>
   </configuration>
   <configuration>
     <name>FlashROMDbg</name>

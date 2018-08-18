@@ -133,7 +133,7 @@ static uint8 beaconconfigProfileChar1UserDesp[30] = "Beacon char1 desp";
 
 // Beacon Config Profile Characteristic 2 Properties
 //添加char1UUID的时，用到write通道
-static uint8 beaconconfigProfileChar2Props = GATT_PROP_WRITE;
+static uint8 beaconconfigProfileChar2Props = GATT_PROP_WRITE_NO_RSP;
 
 // Characteristic 2 Value
 //特征2的值是一个容量为21字节的数组
@@ -265,7 +265,7 @@ static gattAttribute_t beaconconfigProfileAttrTbl[SERVAPP_NUM_ATTR_SUPPORTED] =
         { ATT_BT_UUID_SIZE, beaconconfigProfilechar2UUID },
         GATT_PERMIT_WRITE, //能写
         0, 
-        &beaconconfigProfileChar2 
+        beaconconfigProfileChar2 
       },
 
       // Characteristic 2 User Description
@@ -490,7 +490,7 @@ bStatus_t BeaconConfigProfile_SetParameter( uint8 param, uint8 len, void *value 
         
         //通知
          // See if Notification has been enabled
-        GATTServApp_ProcessCharCfg( beaconconfigProfileChar1Config, &beaconconfigProfileChar1, FALSE,
+        GATTServApp_ProcessCharCfg( beaconconfigProfileChar1Config, beaconconfigProfileChar1, FALSE,
                                     beaconconfigProfileAttrTbl, GATT_NUM_ATTRS( beaconconfigProfileAttrTbl ),
                                     INVALID_TASK_ID, beaconconfigProfile_ReadAttrCB );
 
@@ -750,7 +750,7 @@ static bStatus_t beaconconfigProfile_WriteAttrCB(uint16_t connHandle,
           //长度判断
           if ( len > 200)
           {
-            status = att_err_invalid_value_size;
+            status = ATT_ERR_INVALID_VALUE_SIZE;
           }
         }
         else
@@ -763,7 +763,7 @@ static bStatus_t beaconconfigProfile_WriteAttrCB(uint16_t connHandle,
         {
           uint8 *pCurValue = (uint8 *)pAttr->pValue;        
 
-          if( pAttr->pValue == &beaconconfigProfileChar2 )
+          if( pAttr->pValue == beaconconfigProfileChar2 )
           {
             //clear buff
             VOID memset(pCurValue, 0x00, sizeof(beaconconfigProfileChar2)) ; 
@@ -784,7 +784,7 @@ static bStatus_t beaconconfigProfile_WriteAttrCB(uint16_t connHandle,
         
         //如果没添加会导致通知开关打不开，以至于从机无法主动发送数据到主机
         //CHAR1的通知开关
-        if(pAttr->handle == simpleProfileAttrTbl[ATTRTBL_BEACON_CHAR1_CCC_IDX].handle) 
+        if(pAttr->handle == beaconconfigProfileAttrTbl[ATTRTBL_BEACON_CHAR1_CCC_IDX].handle) 
         {  
            status = GATTServApp_ProcessCCCWriteReq( connHandle, pAttr, pValue, len,
                                                  offset, GATT_CLIENT_CFG_NOTIFY );
@@ -796,7 +796,7 @@ static bStatus_t beaconconfigProfile_WriteAttrCB(uint16_t connHandle,
 
         } 
         
-          if(pAttr->handle == simpleProfileAttrTbl[ATTRTBL_BEACON_CHAR4_CCC_IDX].handle) 
+          if(pAttr->handle == beaconconfigProfileAttrTbl[ATTRTBL_BEACON_CHAR4_CCC_IDX].handle) 
         {  
            status = GATTServApp_ProcessCCCWriteReq( connHandle, pAttr, pValue, len,
                                                  offset, GATT_CLIENT_CFG_NOTIFY );
@@ -864,7 +864,7 @@ void BeaconConfigProfile_Notify( uint8 param, uint16 connHandle, uint8 *pValue, 
         if(noti.pValue != NULL)
         {
           //填充数据
-          noti.handle = GUAProfileAttrTbl[ATTRTBL_BEACON_CHAR1_IDX].handle;    
+          noti.handle = beaconconfigProfileAttrTbl[ATTRTBL_BEACON_CHAR1_IDX].handle;    
           noti.len = len;    
           memcpy( noti.pValue, pValue, len);  
           //发送数据
@@ -893,7 +893,7 @@ void BeaconConfigProfile_Notify( uint8 param, uint16 connHandle, uint8 *pValue, 
         if(noti.pValue != NULL)
         {
           //填充数据
-          noti.handle = GUAProfileAttrTbl[ATTRTBL_BEACON_CHAR4_IDX].handle;    
+          noti.handle = beaconconfigProfileAttrTbl[ATTRTBL_BEACON_CHAR4_IDX].handle;    
           noti.len = len;    
           memcpy( noti.pValue, pValue, len);  
           //发送数据
@@ -910,7 +910,7 @@ void BeaconConfigProfile_Notify( uint8 param, uint16 connHandle, uint8 *pValue, 
     default:  
       break; 
   
-
+}
 }
 
 /*********************************************************************
