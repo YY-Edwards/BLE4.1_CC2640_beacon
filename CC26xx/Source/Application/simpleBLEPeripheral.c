@@ -450,6 +450,12 @@ static void SimpleBLEPeripheral_init(void)
   Util_constructClock(&periodicClock, SimpleBLEPeripheral_clockHandler,
                       SBP_PERIODIC_EVT_PERIOD, 0, false, SBP_PERIODIC_EVT);
   
+  
+//    //创建电池电量采集事件
+//  Util_constructClock(&powerleavel_periodicClock, Mypoewer_clockHandler,
+//                     POWERCHECK_PERIOD, 0, false, POWERCHECK_EVENT);
+  
+  
 #ifndef SENSORTAG_HW
   Board_openLCD();
 #endif //SENSORTAG_HW

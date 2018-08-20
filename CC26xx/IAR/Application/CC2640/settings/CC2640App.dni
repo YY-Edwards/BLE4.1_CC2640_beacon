@@ -14,7 +14,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=3
 [DebugChecksum]
-Checksum=-340479855
+Checksum=-1880109908
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -23,14 +23,17 @@ ShowArgs=0
 [Disassembly]
 MixedMode=1
 [struct_types]
-Fmt0=struct attAttribute_t-handle	4	0
+Fmt0=gattAttribute_t-handle	4	0
+Fmt1=struct attAttribute_t-handle	4	0
+[array_types]
+Fmt0=uint8[21]	4	0
+Fmt1=unsigned char[16]	4	0
 [Disassemble mode]
 mode=0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.692.11" 1 0 0 0 "" 0 "" 0
-Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.645.3" 1 0 0 0 "" 0 "" 0
-Bp2=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.1116.3" 1 0 0 0 "" 0 "" 0
-Count=3
+Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.1128.11" 1 0 0 0 "" 0 "" 0
+Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.794.9" 1 0 0 0 "" 0 "" 0
+Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

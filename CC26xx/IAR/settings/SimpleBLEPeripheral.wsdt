@@ -13,7 +13,7 @@
     <Static>
       <Workspace>
         <ColumnWidths>
-          <Column0>224</Column0>
+          <Column0>312</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
@@ -83,9 +83,13 @@
         <ColumnWidth2>876</ColumnWidth2>
       </Select-Ambiguous-Definitions>
       <TerminalIO/>
+      <Debug-Log>
+        <ColumnWidth0>24</ColumnWidth0>
+        <ColumnWidth1>1506</ColumnWidth1>
+      </Debug-Log>
     </Static>
     <Windows>
-      <Wnd2>
+      <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-26046-32382</Identity>
@@ -102,8 +106,8 @@
           </Tab>
         </Tabs>
         <SelectedTab>0</SelectedTab>
-      </Wnd2>
-      <Wnd3>
+      </Wnd0>
+      <Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-12160-32437</Identity>
@@ -134,9 +138,15 @@
             <TabName>Breakpoints</TabName>
             <Factory>Breakpoints</Factory>
           </Tab>
+          <Tab>
+            <Identity>TabID-8352-25923</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
         </Tabs>
         <SelectedTab>0</SelectedTab>
-      </Wnd3>
+      </Wnd1>
     </Windows>
     <Editor>
       <Pane>
@@ -163,30 +173,6 @@
           <YPos2>155</YPos2>
           <SelStart2>0</SelStart2>
           <SelEnd2>0</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\host\gatt_uuid.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>100</YPos2>
-          <SelStart2>3935</SelStart2>
-          <SelEnd2>3935</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gatt_uuid.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>57</YPos2>
-          <SelStart2>3394</SelStart2>
-          <SelEnd2>3394</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -250,55 +236,6 @@
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Source\custom_profile\beacon\beaconconfig_profile.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>634</YPos2>
-          <SelStart2>20053</SelStart2>
-          <SelEnd2>20053</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Source\custom_profile\beacon\beaconconfig_profile.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>58</YPos2>
-          <SelStart2>2352</SelStart2>
-          <SelEnd2>2352</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Source\Application\simpleBLEPeripheral.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>959</YPos2>
-          <SelStart2>31674</SelStart2>
-          <SelEnd2>31674</SelEnd2>
-        </Tab>
-        <ActiveTab>11</ActiveTab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\Profiles\GATT\gattservapp_util.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>402</YPos2>
-          <SelStart2>10558</SelStart2>
-          <SelEnd2>10558</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\..\ICall\Application\ICallBleAPI.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
@@ -308,42 +245,6 @@
           <YPos2>1814</YPos2>
           <SelStart2>69765</SelStart2>
           <SelEnd2>69765</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\att.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>145</YPos2>
-          <SelStart2>8144</SelStart2>
-          <SelEnd2>8170</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\bcomdef.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>233</YPos2>
-          <SelStart2>10713</SelStart2>
-          <SelEnd2>10713</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\..\..\Profiles\SimpleProfile\CC26xx\simpleGATTprofile.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>176</YPos2>
-          <SelStart2>6947</SelStart2>
-          <SelEnd2>6947</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -371,15 +272,172 @@
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\host\gatt_uuid.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>86</YPos2>
+          <SelStart2>3935</SelStart2>
+          <SelEnd2>3935</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Include\gatt_profile_uuid.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>154</YPos2>
+          <SelStart2>7258</SelStart2>
+          <SelEnd2>7258</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gatt.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>53</YPos2>
+          <SelStart2>2809</SelStart2>
+          <SelEnd2>2809</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\custom_profile\beacon\beaconconfig_profile.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>25</YPos2>
+          <SelStart2>1385</SelStart2>
+          <SelEnd2>1385</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Profiles\GATT\gattservapp_util.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>220</YPos2>
+          <SelStart2>9024</SelStart2>
+          <SelEnd2>9024</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\bcomdef.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>228</YPos2>
+          <SelStart2>11342</SelStart2>
+          <SelEnd2>11342</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\osal\include\comdef.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>76</YPos2>
+          <SelStart2>3164</SelStart2>
+          <SelEnd2>3164</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gatt_uuid.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>55</YPos2>
+          <SelStart2>3695</SelStart2>
+          <SelEnd2>3695</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\custom_profile\beacon\beaconconfig_profile.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>860</YPos2>
+          <SelStart2>26464</SelStart2>
+          <SelEnd2>26464</SelEnd2>
+        </Tab>
+        <ActiveTab>18</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\Source\Application\simpleBLEPeripheral.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>444</YPos2>
+          <SelStart2>15377</SelStart2>
+          <SelEnd2>15377</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\Source\Application\main.c</Filename>
           <XPos>0</XPos>
           <YPos>0</YPos>
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>68</YPos2>
+          <YPos2>70</YPos2>
           <SelStart2>2943</SelStart2>
           <SelEnd2>2943</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\bios_6_42_00_08\packages\ti\sysbios\knl\Clock.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>646</YPos2>
+          <SelStart2>25762</SelStart2>
+          <SelEnd2>25762</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\att.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>112</YPos2>
+          <SelStart2>6201</SelStart2>
+          <SelEnd2>6201</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\..\..\Components\hal\include\hal_defs.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>58</YPos2>
+          <SelStart2>3456</SelStart2>
+          <SelEnd2>3456</SelEnd2>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
@@ -410,22 +468,22 @@
       <Left>
         <Row0>
           <Sizes>
-            <Wnd2>
+            <Wnd0>
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>545</Bottom>
-                <Right>315</Right>
+                <Bottom>655</Bottom>
+                <Right>386</Right>
                 <x>-2</x>
                 <y>-2</y>
-                <xscreen>200</xscreen>
-                <yscreen>200</yscreen>
-                <sizeHorzCX>127470</sizeHorzCX>
-                <sizeHorzCY>236967</sizeHorzCY>
-                <sizeVertCX>202040</sizeVertCX>
-                <sizeVertCY>648104</sizeVertCY>
+                <xscreen>245</xscreen>
+                <yscreen>283</yscreen>
+                <sizeHorzCX>156150</sizeHorzCX>
+                <sizeHorzCY>300425</sizeHorzCY>
+                <sizeVertCX>247291</sizeVertCX>
+                <sizeVertCY>697452</sizeVertCY>
               </Rect>
-            </Wnd2>
+            </Wnd0>
           </Sizes>
         </Row0>
       </Left>
@@ -437,22 +495,22 @@
       <Bottom>
         <Row0>
           <Sizes>
-            <Wnd3>
+            <Wnd1>
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>254</Bottom>
+                <Bottom>242</Bottom>
                 <Right>1571</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>1573</xscreen>
-                <yscreen>256</yscreen>
+                <yscreen>244</yscreen>
                 <sizeHorzCX>1002549</sizeHorzCX>
-                <sizeHorzCY>303318</sizeHorzCY>
-                <sizeVertCX>127470</sizeVertCX>
-                <sizeVertCY>236967</sizeVertCY>
+                <sizeHorzCY>259023</sizeHorzCY>
+                <sizeVertCX>156150</sizeVertCX>
+                <sizeVertCY>300425</sizeVertCY>
               </Rect>
-            </Wnd3>
+            </Wnd1>
           </Sizes>
         </Row0>
       </Bottom>

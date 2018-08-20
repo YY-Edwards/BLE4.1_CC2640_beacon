@@ -51,12 +51,31 @@
 /*********************************************************************
  * GLOBAL VARIABLES
  */
-//为满足APP需求,特征1值属性和特征2值属性里使用Ti的128bitsUUID，过后可以根据需求自定义。
+//为满足APP需求,服务属性里的值为服务128bitsUUID，过后可以根据需求自定义。
 // Beacon Condig Profile Service UUID: 0x1803
-CONST uint8 beaconconfigProfileServUUID[ATT_BT_UUID_SIZE] =
+
+CONST uint8 beaconconfigProfileServUUID[ATT_UUID_SIZE] =
 { 
-  LO_UINT16(BEACONCONFIGPROFILE_SERV_UUID), HI_UINT16(BEACONCONFIGPROFILE_SERV_UUID)
+  TI_BASE_UUID_128(BEACONCONFIGPROFILE_SERV_UUID)
 };
+
+//CONST uint8 beaconconfigProfileServUUID[ATT_BT_UUID_SIZE] =
+//{ 
+//  LO_UINT16(BEACONCONFIGPROFILE_SERV_UUID), HI_UINT16(BEACONCONFIGPROFILE_SERV_UUID)
+//};
+
+
+//// Characteristic 1 UUID: 0x00001804-
+//CONST uint8 beaconconfigProfilechar1UUID[ATT_UUID_SIZE] =
+//{ 
+//  TI_BASE_UUID_128(BEACONCONFIGPROFILE_CHAR1_UUID)
+//};
+//
+//// Characteristic 2 UUID: 0x00001805-
+//CONST uint8 beaconconfigProfilechar2UUID[ATT_UUID_SIZE] =
+//{ 
+//  TI_BASE_UUID_128(BEACONCONFIGPROFILE_CHAR2_UUID)
+//};
 
 // Characteristic 1 UUID: 0x1804
 CONST uint8 beaconconfigProfilechar1UUID[ATT_BT_UUID_SIZE] =
@@ -108,7 +127,8 @@ static beaconconfigProfileCBs_t *beaconconfigProfile_AppCBs = NULL;
  */
 
 // Beacon Config Profile Service attribute
-static CONST gattAttrType_t beaconconfigProfileService = { ATT_BT_UUID_SIZE, beaconconfigProfileServUUID };
+//static CONST gattAttrType_t beaconconfigProfileService = { ATT_BT_UUID_SIZE, beaconconfigProfileServUUID };
+static CONST gattAttrType_t beaconconfigProfileService = { ATT_UUID_SIZE, beaconconfigProfileServUUID };
 
 
 // Beacon Config Profile Characteristic 1 Properties
@@ -205,7 +225,7 @@ static uint8 beaconconfigProfileChar5UserDesp[17] = "Characteristic 5";
 static gattAttribute_t beaconconfigProfileAttrTbl[SERVAPP_NUM_ATTR_SUPPORTED] = 
 {
   // Beacon Config Profile Service
-  //服务属性
+  //服务声明属性
   { 
     { ATT_BT_UUID_SIZE, primaryServiceUUID }, /* type */
     GATT_PERMIT_READ,                         /* permissions */
@@ -219,11 +239,17 @@ static gattAttribute_t beaconconfigProfileAttrTbl[SERVAPP_NUM_ATTR_SUPPORTED] =
       { ATT_BT_UUID_SIZE, characterUUID },
       GATT_PERMIT_READ, 
       0,
-      &beaconconfigProfileChar1Props //特征值的权限：可读，通知
+      &beaconconfigProfileChar1Props //声明属性下值的含义：即解释特性的性质。特征值的权限：可读，通知
     },
 
       // Characteristic Value 1
     //特征1的值属性
+//      { 
+//        { ATT_UUID_SIZE, beaconconfigProfilechar1UUID },
+//        GATT_PERMIT_READ, //能读
+//        0, 
+//        beaconconfigProfileChar1 //值的地址
+//      },
       { 
         { ATT_BT_UUID_SIZE, beaconconfigProfilechar1UUID },
         GATT_PERMIT_READ, //能读
@@ -256,11 +282,17 @@ static gattAttribute_t beaconconfigProfileAttrTbl[SERVAPP_NUM_ATTR_SUPPORTED] =
       { ATT_BT_UUID_SIZE, characterUUID },
       GATT_PERMIT_READ, //能读
       0,
-      &beaconconfigProfileChar2Props //可写 
+      &beaconconfigProfileChar2Props //可写无回应 
     },
 
       // Characteristic Value 2
     //特征2的值属性
+//      { 
+//        { ATT_UUID_SIZE, beaconconfigProfilechar2UUID },
+//        GATT_PERMIT_WRITE, //能写
+//        0, 
+//        beaconconfigProfileChar2 
+//      },
       { 
         { ATT_BT_UUID_SIZE, beaconconfigProfilechar2UUID },
         GATT_PERMIT_WRITE, //能写
@@ -789,14 +821,7 @@ static bStatus_t beaconconfigProfile_WriteAttrCB(uint16_t connHandle,
            status = GATTServApp_ProcessCCCWriteReq( connHandle, pAttr, pValue, len,
                                                  offset, GATT_CLIENT_CFG_NOTIFY );
         }
-         else    
-        {    
-
-          status = ATT_ERR_INVALID_HANDLE;    
-
-        } 
-        
-          if(pAttr->handle == beaconconfigProfileAttrTbl[ATTRTBL_BEACON_CHAR4_CCC_IDX].handle) 
+        else if(pAttr->handle == beaconconfigProfileAttrTbl[ATTRTBL_BEACON_CHAR4_CCC_IDX].handle) 
         {  
            status = GATTServApp_ProcessCCCWriteReq( connHandle, pAttr, pValue, len,
                                                  offset, GATT_CLIENT_CFG_NOTIFY );
@@ -819,7 +844,24 @@ static bStatus_t beaconconfigProfile_WriteAttrCB(uint16_t connHandle,
   else
   {
     // 128-bit UUID
-    status = ATT_ERR_INVALID_HANDLE;
+    //status = ATT_ERR_INVALID_HANDLE;
+    //测试128bits UUID 时的情况
+      
+    const uint8 uuid[ATT_UUID_SIZE] = 
+    { 
+    	//Ti这部分写的有错误，已经改正。
+      TI_BASE_UUID_128(BUILD_UINT16( pAttr->type.uuid[12], pAttr->type.uuid[13]))
+    };
+    
+    if( pAttr->pValue == beaconconfigProfileChar2 )
+    {
+      //clear buff
+      VOID memset(pAttr->pValue, 0x00, sizeof(beaconconfigProfileChar2)) ; 
+      VOID memcpy(pAttr->pValue, pValue, len) ; 
+      char2len = len;//reset char2 len
+      notifyApp = BEACONCONFIGPROFILE_CHAR2;   
+      status = SUCCESS;
+    }
   }
 
   // If a characteristic value changed then callback function to notify application of change
