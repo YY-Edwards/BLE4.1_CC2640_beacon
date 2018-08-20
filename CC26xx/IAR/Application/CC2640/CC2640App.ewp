@@ -332,7 +332,7 @@
           <state>$PROJ_DIR$/../../../../../../../Components/ble/include</state>
           <state>$CC26XXWARE$</state>
           <state>$TI_RTOS_DRIVERS_BASE$</state>
-          <state>C:\ti\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS</state>
           <state>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon</state>
         </option>
         <option>
@@ -353,7 +353,7 @@
         </option>
         <option>
           <name>CCOptLevel</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CCOptStrategy</name>
@@ -362,7 +362,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -4259,6 +4259,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Source\Application\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Source\Application\usercustom.h</name>
     </file>
   </group>
   <group>

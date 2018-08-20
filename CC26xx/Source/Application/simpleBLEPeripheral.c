@@ -57,6 +57,7 @@
   
 //新增beacon_profile
 #include "beaconconfig_profile.h"   
+#include "usercustom.h"
 
 #if defined(SENSORTAG_HW)
 #include "bsp_spi.h"
@@ -191,6 +192,7 @@ Char sbpTaskStack[SBP_TASK_STACK_SIZE];
 //static gaprole_States_t gapProfileState = GAPROLE_INIT;
 
 // GAP - SCAN RSP data (max size = 31 bytes)
+
 static uint8_t scanRspData[] =
 {
   // complete name
@@ -205,26 +207,7 @@ static uint8_t scanRspData[] =
   0x63,//'c'
   0x6f,//'o'
   0x6e,//'n'
-//  0x53,   // 'S'
-//  0x69,   // 'i'
-//  0x6d,   // 'm'
-//  0x70,   // 'p'
-//  0x6c,   // 'l'
-//  0x65,   // 'e'
-//  0x42,   // 'B'
-//  0x4c,   // 'L'
-//  0x45,   // 'E'
-//  0x50,   // 'P'
-//  0x65,   // 'e'
-//  0x72,   // 'r'
-//  0x69,   // 'i'
-//  0x70,   // 'p'
-//  0x68,   // 'h'
-//  0x65,   // 'e'
-//  0x72,   // 'r'
-//  0x61,   // 'a'
-//  0x6c,   // 'l'
-    
+  
   //Advertising Interval
   0x03,   // length of this data
   GAP_ADTYPE_ADV_INTERVAL,
@@ -485,14 +468,50 @@ static void SimpleBLEPeripheral_init(void)
     uint16_t desiredConnTimeout = DEFAULT_DESIRED_CONN_TIMEOUT;
 
     // Set the GAP Role Parameters
+    //GAPROLE_ADV_NONCONN_ENABLED
     GAPRole_SetParameter(GAPROLE_ADVERT_ENABLED, sizeof(uint8_t),
                          &initialAdvertEnable);
     GAPRole_SetParameter(GAPROLE_ADVERT_OFF_TIME, sizeof(uint16_t),
                          &advertOffTime);
 
-    GAPRole_SetParameter(GAPROLE_SCAN_RSP_DATA, sizeof(scanRspData),
+    //设定自定扫描回应数据
+    VOID memset(&scanRspData[2], 0x00, 8);
+    //设定名称
+    VOID memcpy(&scanRspData[2], SETTING_BEACON_NAME, sizeof(SETTING_BEACON_NAME) - 1);
+    //设定广播间隔
+    scanRspData[12] = LO_UINT16(SETTING_BEACON_ADV_INTERVAL);
+    scanRspData[13] = HI_UINT16(SETTING_BEACON_ADV_INTERVAL);
+    //设定发射功率
+    if(SETTING_BEACON_TX_POWER < LL_EXT_TX_POWER_0_DBM)//负数
+    {
+      scanRspData[22] = (SETTING_BEACON_TX_POWER*3 - 21);
+    }
+    else
+    {
+      scanRspData[22] = SETTING_BEACON_TX_POWER - HCI_EXT_TX_POWER_0_DBM;
+    }
+    
+    GAPRole_SetParameter(GAPROLE_SCAN_RSP_DATA, sizeof(scanRspData),//扫描回应的数据
                          scanRspData);
-    GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData), advertData);
+    
+    //设定自定义广播数据
+    //设定UUID
+    CONST uint8 Setting_UUID[ATT_UUID_SIZE] =
+    { 
+      SETTING_BEACON_UUID
+    };
+    VOID memcpy(&advertData[9], Setting_UUID, ATT_UUID_SIZE);
+    
+    //设定MAJOR
+    advertData[25]= HI_UINT16(SETTING_BEACON_MAJOR);
+    advertData[26]= LO_UINT16(SETTING_BEACON_MAJOR);
+    //设定MINOR
+    advertData[27]= HI_UINT16(SETTING_BEACON_MINOR);
+    advertData[28]= LO_UINT16(SETTING_BEACON_MINOR);
+    //设定RSSI
+    advertData[29]= SETTING_BEACON_RSSI;
+    
+    GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData), advertData);//广播的数据
 
     GAPRole_SetParameter(GAPROLE_PARAM_UPDATE_ENABLE, sizeof(uint8_t),
                          &enableUpdateRequest);
@@ -506,17 +525,23 @@ static void SimpleBLEPeripheral_init(void)
                          &desiredConnTimeout);
   }
 
+  //1.向设备设定名称
   // Set the GAP Characteristics
-  GGS_SetParameter(GGS_DEVICE_NAME_ATT, sizeof(attDeviceName), attDeviceName);
+  GGS_SetParameter(GGS_DEVICE_NAME_ATT, sizeof(SETTING_BEACON_NAME) - 1, SETTING_BEACON_NAME);
+  //GGS_SetParameter(GGS_DEVICE_NAME_ATT, sizeof(attDeviceName), attDeviceName);
 
+  //2.向设备设定发射功率
   //设置发射功率：5dbm
   {
-    HCI_EXT_SetTxPowerCmd(HCI_EXT_TX_POWER_5_DBM);
+    HCI_EXT_SetTxPowerCmd(SETTING_BEACON_TX_POWER);
+    //HCI_EXT_SetTxPowerCmd(HCI_EXT_TX_POWER_5_DBM);
   }
   
   // Set advertising interval
   {
-    uint16_t advInt = DEFAULT_ADVERTISING_INTERVAL;
+    //3.向设备设定广播间隔
+    //uint16_t advInt = DEFAULT_ADVERTISING_INTERVAL;
+    uint16_t advInt = SETTING_BEACON_ADV_INTERVAL;
 
     GAP_SetParamValue(TGAP_LIM_DISC_ADV_INT_MIN, advInt);
     GAP_SetParamValue(TGAP_LIM_DISC_ADV_INT_MAX, advInt);
@@ -543,7 +568,7 @@ static void SimpleBLEPeripheral_init(void)
    // Initialize GATT attributes
   GGS_AddService(GATT_ALL_SERVICES);           // GAP
   GATTServApp_AddService(GATT_ALL_SERVICES);   // GATT attributes
-  DevInfo_AddService();                        // Device Information Service
+  //DevInfo_AddService();                        // Device Information Service
 
 #ifndef FEATURE_OAD
   BeaconConfigProfile_AddService(GATT_ALL_SERVICES);//add beacon service
