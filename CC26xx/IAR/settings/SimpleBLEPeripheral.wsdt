@@ -2,29 +2,26 @@
 
 <Workspace>
   <ConfigDictionary>
-    <CurrentConfigs>
-      <Project>CC2640App/FlashROM</Project>
-      <Project>CC2640Stack/FlashROM</Project>
-    </CurrentConfigs>
-    <CurrentProj>CC2640App</CurrentProj>
-    <OverviewSelected>1</OverviewSelected>
-  </ConfigDictionary>
+    
+    
+    
+  <CurrentConfigs><Project>CC2640Stack/FlashROM</Project><Project>CC2640App/FlashROM</Project></CurrentConfigs><CurrentProj>CC2640App</CurrentProj><OverviewSelected>1</OverviewSelected></ConfigDictionary>
   <Desktop>
     <Static>
       <Workspace>
         <ColumnWidths>
-          <Column0>229</Column0>
-          <Column1>27</Column1>
-          <Column2>27</Column2>
-          <Column3>27</Column3>
-        </ColumnWidths>
+          
+          
+          
+          
+        <Column0>238</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
-        <ColumnWidth0>20</ColumnWidth0>
-        <ColumnWidth1>1141</ColumnWidth1>
-        <ColumnWidth2>304</ColumnWidth2>
-        <ColumnWidth3>76</ColumnWidth3>
-      </Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1141</ColumnWidth1><ColumnWidth2>304</ColumnWidth2><ColumnWidth3>76</ColumnWidth3></Build>
       <Find-in-Files>
         <PreferedWindows>
           <Position>3</Position>
@@ -84,27 +81,26 @@
       </Select-Ambiguous-Definitions>
       <TerminalIO/>
       <Debug-Log>
-        <ColumnWidth0>24</ColumnWidth0>
-        <ColumnWidth1>1506</ColumnWidth1>
-      </Debug-Log>
+        
+        
+      <ColumnWidth0>24</ColumnWidth0><ColumnWidth1>1506</ColumnWidth1></Debug-Log>
     </Static>
     <Windows>
-      <Wnd0>
+      
+      
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-26046-32382</Identity>
             <TabName>Workspace</TabName>
             <Factory>Workspace</Factory>
             <Session>
-              <NodeDict>
-                <ExpandedNode>&lt;ws&gt;</ExpandedNode>
-              </NodeDict>
-            </Session>
+              
+            <NodeDict><ExpandedNode>&lt;ws&gt;</ExpandedNode><ExpandedNode>&lt;ws&gt;/CC2640App</ExpandedNode><ExpandedNode>&lt;ws&gt;/CC2640App/Application</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
-      </Wnd0>
-      <Wnd2>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-12160-32437</Identity>
@@ -142,103 +138,21 @@
             <Session/>
           </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
-      </Wnd2>
-    </Windows>
+        
+      <SelectedTab>0</SelectedTab></Wnd2></Windows>
     <Editor>
-      <Pane>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Source\Application\usercustom.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>2186</SelStart2>
-          <SelEnd2>2186</SelEnd2>
-        </Tab>
-        <ActiveTab>0</ActiveTab>
-      </Pane>
-      <ActivePane>0</ActivePane>
-      <Sizes>
-        <Pane>
-          <X>1000000</X>
-          <Y>1000000</Y>
-        </Pane>
-      </Sizes>
-      <SplitMode>1</SplitMode>
-    </Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\Application\usercustom.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>51</YPos2><SelStart2>1766</SelStart2><SelEnd2>1766</SelEnd2></Tab><ActiveTab>0</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\Application\simpleBLEPeripheral.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>534</YPos2><SelStart2>19017</SelStart2><SelEnd2>19017</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\Application\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>64</YPos2><SelStart2>2943</SelStart2><SelEnd2>2943</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\ble\include\gap.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>134</YPos2><SelStart2>8872</SelStart2><SelEnd2>8872</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\hal\include\hal_defs.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>66</YPos2><SelStart2>3612</SelStart2><SelEnd2>3612</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
-      <Top>
-        <Row0>
-          <Sizes>
-            <Toolbar-009B6318>
-              <key>iaridepm.enu1</key>
-            </Toolbar-009B6318>
-          </Sizes>
-        </Row0>
-        <Row1>
-          <Sizes/>
-        </Row1>
-        <Row2>
-          <Sizes/>
-        </Row2>
-      </Top>
-      <Left>
-        <Row0>
-          <Sizes>
-            <Wnd0>
-              <Rect>
-                <Top>-2</Top>
-                <Left>-2</Left>
-                <Bottom>701</Bottom>
-                <Right>303</Right>
-                <x>-2</x>
-                <y>-2</y>
-                <xscreen>245</xscreen>
-                <yscreen>283</yscreen>
-                <sizeHorzCX>156150</sizeHorzCX>
-                <sizeHorzCY>325287</sizeHorzCY>
-                <sizeVertCX>194391</sizeVertCX>
-                <sizeVertCY>808046</sizeVertCY>
-              </Rect>
-            </Wnd0>
-          </Sizes>
-        </Row0>
-      </Left>
-      <Right>
-        <Row0>
-          <Sizes/>
-        </Row0>
-      </Right>
-      <Bottom>
-        <Row0>
-          <Sizes>
-            <Wnd2>
-              <Rect>
-                <Top>-2</Top>
-                <Left>-2</Left>
-                <Bottom>124</Bottom>
-                <Right>1571</Right>
-                <x>-2</x>
-                <y>-2</y>
-                <xscreen>1573</xscreen>
-                <yscreen>126</yscreen>
-                <sizeHorzCX>1002549</sizeHorzCX>
-                <sizeHorzCY>144828</sizeHorzCY>
-                <sizeVertCX>156150</sizeVertCX>
-                <sizeVertCY>325287</sizeVertCY>
-              </Rect>
-            </Wnd2>
-          </Sizes>
-        </Row0>
-      </Bottom>
-      <Float>
-        <Sizes/>
-      </Float>
-    </Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-009B6318><key>iaridepm.enu1</key></Toolbar-009B6318></Sizes></Row0><Row1><Sizes/></Row1><Row2><Sizes/></Row2></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>645</Bottom><Right>312</Right><x>-2</x><y>-2</y><xscreen>245</xscreen><yscreen>283</yscreen><sizeHorzCX>156150</sizeHorzCX><sizeHorzCY>317265</sizeHorzCY><sizeVertCX>200127</sizeVertCX><sizeVertCY>725336</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>202</Bottom><Right>1571</Right><x>-2</x><y>-2</y><xscreen>1573</xscreen><yscreen>204</yscreen><sizeHorzCX>1002549</sizeHorzCX><sizeHorzCY>228700</sizeHorzCY><sizeVertCX>156150</sizeVertCX><sizeVertCY>317265</sizeVertCY></Rect></Wnd2></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

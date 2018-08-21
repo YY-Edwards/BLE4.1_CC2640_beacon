@@ -25,7 +25,7 @@ extern "C"
  * CONSTANTS
  */
 //1.设置发射功率
-#define SETTING_BEACON_TX_POWER            HCI_EXT_TX_POWER_1_DBM //默认5dbm.
+#define SETTING_BEACON_TX_POWER            HCI_EXT_TX_POWER_5_DBM //默认5dbm.
 /*
 
 可设定值范围如下：
@@ -52,18 +52,22 @@ extern "C"
 
 
 //3.设置主修
-#define SETTING_BEACON_MAJOR            0x001C //默认值十进制的10.
+#define SETTING_BEACON_MAJOR            27 //默认值十进制的27.
+/*
+可设定值范围0~65535
+*/                                    
 
+                                    
 //4.设置辅修
-#define SETTING_BEACON_MINOR            0x0009 //默认值为十进制的13.
+#define SETTING_BEACON_MINOR            42568 //默认值为十进制的42568.
+/*
+可设定值范围0~65535
+*/                                       
 
 //5.设置广播间隔时间
-#define SETTING_BEACON_ADV_INTERVAL      480 //默认值300ms
+#define SETTING_BEACON_ADV_INTERVAL      851 //单位毫秒，默认值851ms
 /*
 可设定值范围20ms~30.72s
-换算公式：
-单位步进长度为625us.即如要设定为300ms,则用300除以0.625即可得到需要设定的总步长为480.
-(units of 625us, 480=300ms)
 
 */
 
@@ -76,7 +80,7 @@ extern "C"
 
 
 //6.设置设备在1m处的接收的信号强度值
-#define SETTING_BEACON_RSSI		0xC3 //默认值为十进制的197
+#define SETTING_BEACON_RSSI		197 //默认值为十进制的197
 /*
 取值范围：0~255
 2的补码256-197=-59dBm，因此在APP上换算后显示的值为-59dbm

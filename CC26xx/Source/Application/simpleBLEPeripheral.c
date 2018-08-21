@@ -478,8 +478,8 @@ static void SimpleBLEPeripheral_init(void)
     //设定名称
     VOID memcpy(&scanRspData[2], SETTING_BEACON_NAME, sizeof(SETTING_BEACON_NAME) - 1);
     //设定广播间隔
-    scanRspData[12] = LO_UINT16(SETTING_BEACON_ADV_INTERVAL);
-    scanRspData[13] = HI_UINT16(SETTING_BEACON_ADV_INTERVAL);
+    scanRspData[12] = LO_UINT16((uint16)(SETTING_BEACON_ADV_INTERVAL/0.625));
+    scanRspData[13] = HI_UINT16((uint16)(SETTING_BEACON_ADV_INTERVAL/0.625));;
     //设定发射功率
     if(SETTING_BEACON_TX_POWER < LL_EXT_TX_POWER_0_DBM)//负数
     {
@@ -544,7 +544,7 @@ static void SimpleBLEPeripheral_init(void)
   {
     //3.向设备设定广播间隔
     //uint16_t advInt = DEFAULT_ADVERTISING_INTERVAL;
-    uint16_t advInt = SETTING_BEACON_ADV_INTERVAL;
+    uint16_t advInt = (SETTING_BEACON_ADV_INTERVAL/0.625);
 
     GAP_SetParamValue(TGAP_LIM_DISC_ADV_INT_MIN, advInt);
     GAP_SetParamValue(TGAP_LIM_DISC_ADV_INT_MAX, advInt);
