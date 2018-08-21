@@ -25,7 +25,7 @@ extern "C"
  * CONSTANTS
  */
 //1.设置发射功率
-#define SETTING_BEACON_TX_POWER            HCI_EXT_TX_POWER_4_DBM //默认5dbm.
+#define SETTING_BEACON_TX_POWER            HCI_EXT_TX_POWER_1_DBM //默认5dbm.
 /*
 
 可设定值范围如下：
@@ -47,18 +47,18 @@ extern "C"
     
 //2.设置UUID
 //根据手台设定的实际UUID来设置。
-#define SETTING_BEACON_UUID      0x49, 0xdc, 0xb6, 0xf6, 0x91, 0x5a, 0x41, 0x42, \
-                                  0xa6, 0xfe, 0xfd, 0xa7, 0xb4, 0x41, 0x86, 0x01    
+#define SETTING_BEACON_UUID      0x50, 0xdc, 0xb6, 0xf6, 0x91, 0x5a, 0x41, 0x42, \
+                                  0xa6, 0xfe, 0xfd, 0xa7, 0xb4, 0x41, 0x86, 0x09    
 
 
 //3.设置主修
-#define SETTING_BEACON_MAJOR            0x000B //默认值十进制的10.
+#define SETTING_BEACON_MAJOR            0x001C //默认值十进制的10.
 
 //4.设置辅修
-#define SETTING_BEACON_MINOR            0x000F //默认值为十进制的13.
+#define SETTING_BEACON_MINOR            0x0009 //默认值为十进制的13.
 
 //5.设置广播间隔时间
-#define SETTING_BEACON_ADV_INTERVAL      320 //默认值300ms
+#define SETTING_BEACON_ADV_INTERVAL      480 //默认值300ms
 /*
 可设定值范围20ms~30.72s
 换算公式：
@@ -69,14 +69,14 @@ extern "C"
 
 
 //6.设置设备名称
-#define SETTING_BEACON_NAME			"china" //默认名称jhbeacon
+#define SETTING_BEACON_NAME			"loveyou" //默认名称jhbeacon
 /*
 可设字符最大8个有效字符
 */
 
 
 //6.设置设备在1m处的接收的信号强度值
-#define SETTING_BEACON_RSSI		0xC6 //默认值为十进制的197
+#define SETTING_BEACON_RSSI		0xC3 //默认值为十进制的197
 /*
 取值范围：0~255
 2的补码256-197=-59dBm，因此在APP上换算后显示的值为-59dbm

@@ -468,7 +468,6 @@ static void SimpleBLEPeripheral_init(void)
     uint16_t desiredConnTimeout = DEFAULT_DESIRED_CONN_TIMEOUT;
 
     // Set the GAP Role Parameters
-    //GAPROLE_ADV_NONCONN_ENABLED
     GAPRole_SetParameter(GAPROLE_ADVERT_ENABLED, sizeof(uint8_t),
                          &initialAdvertEnable);
     GAPRole_SetParameter(GAPROLE_ADVERT_OFF_TIME, sizeof(uint16_t),
@@ -513,6 +512,10 @@ static void SimpleBLEPeripheral_init(void)
     
     GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData), advertData);//广播的数据
 
+    uint8_t advType = GAP_ADTYPE_ADV_SCAN_IND; //use scannable undirected adv
+    GAPRole_SetParameter(GAPROLE_ADV_EVENT_TYPE, sizeof(uint8_t), &advType);
+    
+    
     GAPRole_SetParameter(GAPROLE_PARAM_UPDATE_ENABLE, sizeof(uint8_t),
                          &enableUpdateRequest);
     GAPRole_SetParameter(GAPROLE_MIN_CONN_INTERVAL, sizeof(uint16_t),
