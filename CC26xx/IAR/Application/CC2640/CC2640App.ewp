@@ -334,6 +334,7 @@
           <state>$TI_RTOS_DRIVERS_BASE$</state>
           <state>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS</state>
           <state>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon</state>
+          <state>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -3948,6 +3949,15 @@
       <name>$PROJ_DIR$\..\..\..\..\..\common\cc26xx\board_lcd.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\Source\Application\customerDefaultConfig.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage\customerInfoStorage.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage\customerInfoStorage.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\Source\Application\simpleBLEPeripheral.c</name>
     </file>
     <file>
@@ -4259,9 +4269,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Source\Application\main.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\Source\Application\usercustom.h</name>
     </file>
   </group>
   <group>
