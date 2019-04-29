@@ -338,6 +338,9 @@ static void BeaconProfile_processCharValueChangeEvt(uint8_t paramID);
 
 static void SimpleBLEPeripheral_clockHandler(UArg arg);
 
+//新增更新接口
+static void update_adv_beacon_data();
+static void update_scanrsp_data();
 
 
 /*********************************************************************
@@ -404,6 +407,50 @@ void SimpleBLEPeripheral_createTask(void)
   Task_construct(&sbpTask, SimpleBLEPeripheral_taskFxn, &taskParams, NULL);
 }
 
+static void update_adv_beacon_data()
+{
+      //设定自定义广播数据
+    //设定UUID
+    VOID memcpy(&advertData[9], last_customerStorageBeaconInfo.uuid, ATT_UUID_SIZE);
+    
+    //设定MAJOR
+    advertData[25]= HI_UINT16(last_customerStorageBeaconInfo.major);
+    advertData[26]= LO_UINT16(last_customerStorageBeaconInfo.major);
+    //设定MINOR
+    advertData[27]= HI_UINT16(last_customerStorageBeaconInfo.minor);
+    advertData[28]= LO_UINT16(last_customerStorageBeaconInfo.minor);
+    //设定RSSI
+    advertData[29]= last_customerStorageBeaconInfo.rssi_one_meter;
+  
+}
+static void update_scanrsp_data()
+{
+      //填充自定义扫描回应数据
+    VOID memset(&scanRspData[2], 0x00, 8);//暂定设备名称最大支持8个assic字符
+    
+    //设定名称
+    VOID memcpy(&scanRspData[2], (const void*)last_customerStorageBeaconInfo.dev_name, strlen(last_customerStorageBeaconInfo.dev_name));
+    //VOID memcpy(&scanRspData[2], SETTING_BEACON_NAME, sizeof(SETTING_BEACON_NAME) - 1);
+    //设定广播间隔
+    scanRspData[12] = LO_UINT16((uint16)(last_customerStorageBeaconInfo.adv_interval_ms/0.625));
+    scanRspData[13] = HI_UINT16((uint16)(last_customerStorageBeaconInfo.adv_interval_ms/0.625));
+//    scanRspData[12] = LO_UINT16((uint16)(SETTING_BEACON_ADV_INTERVAL/0.625));
+//    scanRspData[13] = HI_UINT16((uint16)(SETTING_BEACON_ADV_INTERVAL/0.625));;
+    //设定发射功率
+    //if(SETTING_BEACON_TX_POWER < LL_EXT_TX_POWER_0_DBM)//负数
+    if(last_customerStorageBeaconInfo.dev_tx_power < LL_EXT_TX_POWER_0_DBM)
+    {
+      scanRspData[22] = (last_customerStorageBeaconInfo.dev_tx_power*3 - 21);
+      //scanRspData[22] = (SETTING_BEACON_TX_POWER*3 - 21);
+    }
+    else
+    {
+      scanRspData[22] = last_customerStorageBeaconInfo.dev_tx_power - HCI_EXT_TX_POWER_0_DBM;
+      //scanRspData[22] = SETTING_BEACON_TX_POWER - HCI_EXT_TX_POWER_0_DBM;
+    }
+}
+
+
 /*********************************************************************
  * @fn      SimpleBLEPeripheral_init
  *
@@ -462,12 +509,12 @@ static void SimpleBLEPeripheral_init(void)
 //  //set
 //  fill_customerInfo(&test_customerStorageBeaconInfo);
 //  set_customerInfo(&test_customerStorageBeaconInfo);
-  
   //get
 //  VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
 //  fill_customerInfo(&last_customerStorageBeaconInfo);
 //  set_customerInfo(&last_customerStorageBeaconInfo);
 //  
+  //从SNV中获取最新的配置信息
   VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
   get_customerInfo(&last_customerStorageBeaconInfo);
   
@@ -493,70 +540,19 @@ static void SimpleBLEPeripheral_init(void)
     uint16_t desiredConnTimeout = DEFAULT_DESIRED_CONN_TIMEOUT;
 
     // Set the GAP Role Parameters
+    //打开广播
     GAPRole_SetParameter(GAPROLE_ADVERT_ENABLED, sizeof(uint8_t),
                          &initialAdvertEnable);
     GAPRole_SetParameter(GAPROLE_ADVERT_OFF_TIME, sizeof(uint16_t),
                          &advertOffTime);
-
-    //填充自定义扫描回应数据
-    VOID memset(&scanRspData[2], 0x00, 8);//暂定设备名称最大支持8个assic字符
     
-    //设定名称
-    VOID memcpy(&scanRspData[2], (const void*)last_customerStorageBeaconInfo.dev_name, strlen(last_customerStorageBeaconInfo.dev_name));
-    //VOID memcpy(&scanRspData[2], SETTING_BEACON_NAME, sizeof(SETTING_BEACON_NAME) - 1);
-    //设定广播间隔
-    scanRspData[12] = LO_UINT16((uint16)(last_customerStorageBeaconInfo.adv_interval_ms/0.625));
-    scanRspData[13] = HI_UINT16((uint16)(last_customerStorageBeaconInfo.adv_interval_ms/0.625));
-//    scanRspData[12] = LO_UINT16((uint16)(SETTING_BEACON_ADV_INTERVAL/0.625));
-//    scanRspData[13] = HI_UINT16((uint16)(SETTING_BEACON_ADV_INTERVAL/0.625));;
-    //设定发射功率
-    //if(SETTING_BEACON_TX_POWER < LL_EXT_TX_POWER_0_DBM)//负数
-    if(last_customerStorageBeaconInfo.dev_tx_power < LL_EXT_TX_POWER_0_DBM)
-    {
-      scanRspData[22] = (last_customerStorageBeaconInfo.dev_tx_power*3 - 21);
-      //scanRspData[22] = (SETTING_BEACON_TX_POWER*3 - 21);
-    }
-    else
-    {
-      scanRspData[22] = last_customerStorageBeaconInfo.dev_tx_power - HCI_EXT_TX_POWER_0_DBM;
-      //scanRspData[22] = SETTING_BEACON_TX_POWER - HCI_EXT_TX_POWER_0_DBM;
-    }
-    
+    update_scanrsp_data();
     GAPRole_SetParameter(GAPROLE_SCAN_RSP_DATA, sizeof(scanRspData),//配置扫描回应的数据
                          scanRspData);
-    
-    //设定自定义广播数据
-    //设定UUID
-    
-    VOID memcpy(&advertData[9], last_customerStorageBeaconInfo.uuid, ATT_UUID_SIZE);
-    
-    //设定MAJOR
-    advertData[25]= HI_UINT16(last_customerStorageBeaconInfo.major);
-    advertData[26]= LO_UINT16(last_customerStorageBeaconInfo.major);
-    //设定MINOR
-    advertData[27]= HI_UINT16(last_customerStorageBeaconInfo.minor);
-    advertData[28]= LO_UINT16(last_customerStorageBeaconInfo.minor);
-    //设定RSSI
-    advertData[29]= last_customerStorageBeaconInfo.rssi_one_meter;
-    
-    
-    
-//    CONST uint8 Setting_UUID[ATT_UUID_SIZE] =
-//    { 
-//      SETTING_BEACON_UUID
-//    };
-//    VOID memcpy(&advertData[9], Setting_UUID, ATT_UUID_SIZE);
-//    
-//    //设定MAJOR
-//    advertData[25]= HI_UINT16(SETTING_BEACON_MAJOR);
-//    advertData[26]= LO_UINT16(SETTING_BEACON_MAJOR);
-//    //设定MINOR
-//    advertData[27]= HI_UINT16(SETTING_BEACON_MINOR);
-//    advertData[28]= LO_UINT16(SETTING_BEACON_MINOR);
-//    //设定RSSI
-//    advertData[29]= SETTING_BEACON_RSSI;
-    
-    GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData), advertData);//设定广播的数据
+   
+    update_adv_beacon_data();
+    GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData),
+                         advertData);//设定广播的数据
 
     uint8_t advType = GAP_ADTYPE_ADV_SCAN_IND; //use scannable undirected adv
     GAPRole_SetParameter(GAPROLE_ADV_EVENT_TYPE, sizeof(uint8_t), &advType);
@@ -574,25 +570,21 @@ static void SimpleBLEPeripheral_init(void)
                          &desiredConnTimeout);
   }
 
-  //1.向设备设定名称
   // Set the GAP Characteristics
+  
+   //1.向设备设定名称
    GGS_SetParameter(GGS_DEVICE_NAME_ATT, strlen(last_customerStorageBeaconInfo.dev_name), last_customerStorageBeaconInfo.dev_name);
-  //GGS_SetParameter(GGS_DEVICE_NAME_ATT, sizeof(SETTING_BEACON_NAME) - 1, SETTING_BEACON_NAME);
-  //GGS_SetParameter(GGS_DEVICE_NAME_ATT, sizeof(attDeviceName), attDeviceName);
 
   //2.向设备设定发射功率
   //设置发射功率：5dbm
   {
     HCI_EXT_SetTxPowerCmd(last_customerStorageBeaconInfo.dev_tx_power);
-    //HCI_EXT_SetTxPowerCmd(SETTING_BEACON_TX_POWER);
-    //HCI_EXT_SetTxPowerCmd(HCI_EXT_TX_POWER_5_DBM);
+
   }
   
   // Set advertising interval
   {
     //3.向设备设定广播间隔
-    //uint16_t advInt = DEFAULT_ADVERTISING_INTERVAL;
-//    uint16_t advInt = (uint16_t)((float)SETTING_BEACON_ADV_INTERVAL/0.625);
     uint16_t advInt = (uint16_t)((float)(last_customerStorageBeaconInfo.adv_interval_ms)/0.625);
 
     GAP_SetParamValue(TGAP_LIM_DISC_ADV_INT_MIN, advInt);
