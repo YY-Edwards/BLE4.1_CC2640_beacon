@@ -169,7 +169,7 @@
         <option>
           <name>CCDefines</name>
           <state>USE_ICALL</state>
-          <state>POWER_SAVING</state>
+          <state>xPOWER_SAVING</state>
           <state>HEAPMGR_SIZE=2672</state>
           <state>ICALL_MAX_NUM_TASKS=3</state>
           <state>ICALL_MAX_NUM_ENTITIES=6</state>
@@ -177,6 +177,7 @@
           <state>xdc_runtime_Log_DISABLE_ALL</state>
           <state>CC26XXWARE</state>
           <state>CC26XX</state>
+          <state>NPI_USE_UART</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -335,6 +336,8 @@
           <state>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS</state>
           <state>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon</state>
           <state>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\..\..\Components\npi</state>
+          <state>$PROJ_DIR$\..\..\..\Source\Application\DevUart</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -3958,6 +3961,12 @@
       <name>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage\customerInfoStorage.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\Source\Application\DevUart\devUart.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\Source\Application\DevUart\devUart.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\Source\Application\simpleBLEPeripheral.c</name>
     </file>
     <file>
@@ -4144,6 +4153,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\..\..\Components\osal\include\osal_snv.h</name>
+    </file>
+  </group>
+  <group>
+    <name>NPI</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\..\Components\npi\npi_tl_uart.c</name>
     </file>
   </group>
   <group>

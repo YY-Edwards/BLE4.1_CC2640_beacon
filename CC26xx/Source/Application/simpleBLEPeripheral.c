@@ -61,6 +61,7 @@
    
 //新增头文件
 #include "customerInfoStorage.h"   
+#include "devUart.h"
 
 #if defined(SENSORTAG_HW)
 #include "bsp_spi.h"
@@ -514,6 +515,9 @@ static void SimpleBLEPeripheral_init(void)
 //  fill_customerInfo(&last_customerStorageBeaconInfo);
 //  set_customerInfo(&last_customerStorageBeaconInfo);
 //  
+  //开启串口
+  dev_uart_init();
+  
   //从SNV中获取最新的配置信息
   VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
   get_customerInfo(&last_customerStorageBeaconInfo);
@@ -549,7 +553,7 @@ static void SimpleBLEPeripheral_init(void)
     update_scanrsp_data();
     GAPRole_SetParameter(GAPROLE_SCAN_RSP_DATA, sizeof(scanRspData),//配置扫描回应的数据
                          scanRspData);
-   
+    NPITLUART_writeTransport();
     update_adv_beacon_data();
     GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData),
                          advertData);//设定广播的数据

@@ -64,6 +64,10 @@ C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPerip
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Application\CustomerInfoStorage
 -I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\..\..\..\..\Components\npi
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Application\DevUart
+-I
 E:\Program x86\IAR Systems\EW7.2\arm\inc
 -I
 E:\Program x86\IAR Systems\EW7.2\arm\inc\c
@@ -123,8 +127,12 @@ C:\ti\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\CustomerInfoStorage
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Components\npi
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\DevUart
 -DUSE_ICALL=1
--DPOWER_SAVING=1
+-DxPOWER_SAVING=1
 -DHEAPMGR_SIZE=2672
 -DICALL_MAX_NUM_TASKS=3
 -DICALL_MAX_NUM_ENTITIES=6
@@ -132,6 +140,7 @@ C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPerip
 -Dxdc_runtime_Log_DISABLE_ALL=1
 -DCC26XXWARE=1
 -DCC26XX=1
+-DNPI_USE_UART=1
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
