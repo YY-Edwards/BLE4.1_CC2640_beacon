@@ -405,6 +405,8 @@ void SimpleBLEPeripheral_createTask(void)
   taskParams.stackSize = SBP_TASK_STACK_SIZE;
   taskParams.priority = SBP_TASK_PRIORITY;
 
+  //Task_create(): statically .
+  //Task_construct():and those created dynamically .
   Task_construct(&sbpTask, SimpleBLEPeripheral_taskFxn, &taskParams, NULL);
 }
 
