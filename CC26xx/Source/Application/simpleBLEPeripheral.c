@@ -63,6 +63,8 @@
 #include "customerInfoStorage.h"   
 #include "devUart.h"
 
+#include "BEGP.h"
+
 #if defined(SENSORTAG_HW)
 #include "bsp_spi.h"
 #endif // SENSORTAG_HW
@@ -132,6 +134,9 @@
 // How often to perform periodic event (in msec)
 #define SBP_PERIODIC_EVT_PERIOD               5000
 
+//设定定时时间
+#define SBP_UART_PERIODIC_EVT_PERIOD               650
+
 #ifdef FEATURE_OAD
 // The size of an OAD packet.
 #define OAD_PACKET_SIZE                       ((OAD_BLOCK_SIZE) + 2)
@@ -151,6 +156,9 @@
 #define SBP_CONN_EVT_END_EVT                  0x0008
 //添加服务处理事件宏
 #define SBP_BEACON_CHAR_CHANGE_EVT            0x0010  
+
+//添加自定义的周期事件
+#define SBP_EXTERNAL_BEACON_INFO_CHANGE_EVT    0x0020  
 
 /*********************************************************************
  * TYPEDEFS
@@ -174,6 +182,9 @@ static ICall_Semaphore sem;
 
 // Clock instances for internal periodic events.
 static Clock_Struct periodicClock;
+
+//定义定时器结构体数据
+static Clock_Struct UartPeriodicClock;
 
 // Queue object used for app messages
 static Queue_Struct appMsg;
@@ -337,11 +348,17 @@ void SimpleBLEPeripheral_processOadWriteCB(uint8_t event, uint16_t connHandle,
 static void BeaconPRofileCharChangeCB(uint8_t paramID);
 static void BeaconProfile_processCharValueChangeEvt(uint8_t paramID);
 
+//定义周期事件的处理函数
+static void SimpleBLEPeripheral_UART_performPeriodicTask(void);
+
+
 static void SimpleBLEPeripheral_clockHandler(UArg arg);
 
 //新增更新接口
 static void update_adv_beacon_data();
 static void update_scanrsp_data();
+
+
 
 
 /*********************************************************************
@@ -493,7 +510,7 @@ static void SimpleBLEPeripheral_init(void)
 //    //创建电池电量采集事件
 //  Util_constructClock(&powerleavel_periodicClock, Mypoewer_clockHandler,
 //                     POWERCHECK_PERIOD, 0, false, POWERCHECK_EVENT);
-  
+    
   
 #ifndef SENSORTAG_HW
   Board_openLCD();
@@ -525,6 +542,12 @@ static void SimpleBLEPeripheral_init(void)
   get_customerInfo(&last_customerStorageBeaconInfo);
   
   
+    //创建串口接收数据监测事件
+  Util_constructClock(&UartPeriodicClock, SimpleBLEPeripheral_clockHandler,
+                    SBP_UART_PERIODIC_EVT_PERIOD, 0, false, SBP_EXTERNAL_BEACON_INFO_CHANGE_EVT);
+ //启动定时器
+  Util_startClock(&UartPeriodicClock);  
+  
   
   // Setup the GAP
   GAP_SetParamValue(TGAP_CONN_PAUSE_PERIPHERAL, DEFAULT_CONN_PAUSE_PERIPHERAL);
@@ -555,7 +578,7 @@ static void SimpleBLEPeripheral_init(void)
     update_scanrsp_data();
     GAPRole_SetParameter(GAPROLE_SCAN_RSP_DATA, sizeof(scanRspData),//配置扫描回应的数据
                          scanRspData);
-    NPITLUART_writeTransport();
+
     update_adv_beacon_data();
     GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData),
                          advertData);//设定广播的数据
@@ -787,6 +810,18 @@ static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
       // Perform periodic application task
       SimpleBLEPeripheral_performPeriodicTask();
     }
+    
+    
+    if (events & SBP_EXTERNAL_BEACON_INFO_CHANGE_EVT)//确定自定义的串口周期事件触发
+    {
+      events &= ~SBP_EXTERNAL_BEACON_INFO_CHANGE_EVT;//clear event
+
+      Util_startClock(&UartPeriodicClock);//start again.
+
+      // Perform periodic application task
+      SimpleBLEPeripheral_UART_performPeriodicTask();
+    }
+
     
 #ifdef FEATURE_OAD
     while (!Queue_empty(hOadQ))
@@ -1188,6 +1223,13 @@ static void SimpleBLEPeripheral_processStateChangeEvt(gaprole_States_t newState)
   // Update the state
   //gapProfileState = newState;
 }
+
+
+static void SimpleBLEPeripheral_UART_performPeriodicTask(void)
+{
+  BEGP_parse_task();
+}
+
 
 #ifndef FEATURE_OAD
 //定义服务的回调函数

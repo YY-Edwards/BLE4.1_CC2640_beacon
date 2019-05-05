@@ -182,7 +182,7 @@ bool begp_init(BEGP_callback_t cb)
   VOID memset(&begp_RxBuf, 0X00, sizeof(begp_RxBuf));
   
   BEGP_sendRspCB = cb;
-  rx_begp_queue = create_queue(10, MAX_BEGP_LEN);
+  rx_begp_queue = create_queue(3, MAX_BEGP_LEN);
   if(rx_begp_queue)
   {
     ret = true;
