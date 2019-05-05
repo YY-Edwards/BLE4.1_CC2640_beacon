@@ -68,6 +68,10 @@ C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPerip
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Application\DevUart
 -I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Application\BoundedQueue
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Application\BEGP
+-I
 E:\Program x86\IAR Systems\EW7.2\arm\inc
 -I
 E:\Program x86\IAR Systems\EW7.2\arm\inc\c
@@ -131,6 +135,10 @@ C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPerip
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Components\npi
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\DevUart
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\BoundedQueue
+-I
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\BEGP
 -DUSE_ICALL=1
 -DxPOWER_SAVING=1
 -DHEAPMGR_SIZE=2672

@@ -27,26 +27,8 @@ extern "C"
 /*********************************************************************
  * CONSTANTS
  */
-/*********************************************************************
- * TYPEDEFS
- */
-#pragma pack(1)
-  typedef struct{
-    
-    unsigned char       dev_name[20];//assic
-    unsigned short      adv_interval_ms;
-    unsigned char       dev_tx_power;
-    unsigned char       uuid[16];
-    unsigned short      major;
-    unsigned short      minor;
-    unsigned short      rssi_one_meter;   
-    
-  }customerStorageBeaconInfo_t;//45bytes.
-  
- #pragma pack() 
-  
-  
-/*********************************************************************
+   
+  /*********************************************************************
  * MACROS
  */
 
@@ -55,6 +37,28 @@ extern "C"
 #define C_INFO_SNV_WRITE                0X02
 #define C_INFO_PER_SNV_MAX_LEN          252
 #define C_INFO_SNV_BEACON_STORAGE_ID    0X87
+   
+#define CUSTOMER_UUID_LEN 16   
+#define CUSTOMER_MAX_BEAON_NAME_LEN 20      
+   
+/*********************************************************************
+ * TYPEDEFS
+ */
+#pragma pack(1)
+  typedef struct{
+    
+    unsigned char       dev_name[CUSTOMER_MAX_BEAON_NAME_LEN];//assic
+    unsigned short      adv_interval_ms;
+    unsigned char       dev_tx_power;
+    unsigned char       uuid[CUSTOMER_UUID_LEN];
+    unsigned short      major;
+    unsigned short      minor;
+    unsigned short      rssi_one_meter;   
+    
+  }customerStorageBeaconInfo_t;//45bytes.
+  
+ #pragma pack() 
+ 
       
    
 /*********************************************************************
@@ -72,7 +76,7 @@ extern void get_customerInfo(customerStorageBeaconInfo_t* p);
  
 extern void set_customerInfo(customerStorageBeaconInfo_t* p);
  
-extern void fill_customerInfo(customerStorageBeaconInfo_t* p);
+extern void fill_customerInfo_byDefault(customerStorageBeaconInfo_t* p);
 
 
 #ifdef __cplusplus

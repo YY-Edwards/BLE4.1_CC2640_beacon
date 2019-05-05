@@ -41,8 +41,7 @@ LogFile=_ ""
 mode=0
 [Breakpoints]
 Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.794.9" 0 0 0 0 "" 0 "" 0
-Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\DevUart\devUart.c}.34.5" 1 0 0 0 "" 0 "" 0
-Count=2
+Count=1
 [Aliases]
 Count=0
 SuppressDialog=0

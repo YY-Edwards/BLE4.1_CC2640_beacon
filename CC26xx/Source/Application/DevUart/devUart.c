@@ -17,12 +17,15 @@
 
 #include "../../npi/inc/npi_tl_uart.h"  
 #include "devUart.h"
+#include "boundedQueue.h"
 
 
 
-static unsigned char uart_RxBuf[128];  
-static unsigned char uart_TxBuf[128];  
-static void dev_uart_callback(unsigned short rxLen, unsigned short txLen);
+static  char uart_RxBuf[128];  
+static  char uart_TxBuf[128];  
+static  void dev_uart_callback(unsigned short rxLen, unsigned short txLen);
+extern RingQueue_t  rx_begp_queue;
+
 
 static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
 {
@@ -30,8 +33,9 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
   if(rxLen > 0)
   { 
     //将接收到的数据发出去
-    memcpy(uart_TxBuf, uart_RxBuf, rxLen);
-    NPITLUART_writeTransport(rxLen);  
+    //memcpy(uart_TxBuf, uart_RxBuf, rxLen);
+    //NPITLUART_writeTransport(rxLen);  
+    push_to_queue(rx_begp_queue, uart_RxBuf, rxLen);
   }
   else if(txLen > 0)//发送成功
   {
@@ -41,8 +45,7 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
 }
 
 
-
- void dev_uart_wrtieTransport(unsigned char* ptr, unsigned short len)
+ void dev_uart_wrtieTransport(void* ptr, uint16_t len)
  {
     memset(uart_TxBuf, 0, sizeof(uart_TxBuf));
     memcpy(uart_TxBuf, ptr, len);
@@ -50,14 +53,19 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
  }
  void dev_uart_readTransport(unsigned char* ptr, unsigned short len)
  {
- 
+  
  
  
  }
 
 void dev_uart_init(void)
 {
-   //初始化  
-  NPITLUART_initializeTransport(uart_RxBuf, uart_TxBuf, dev_uart_callback);
+   
+  if(begp_init(dev_uart_wrtieTransport))
+  {
+    //初始化  
+    NPITLUART_initializeTransport(uart_RxBuf, uart_TxBuf, dev_uart_callback);
+  }
+  
 
 }

@@ -338,6 +338,8 @@
           <state>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage</state>
           <state>$PROJ_DIR$\..\..\..\..\..\..\..\Components\npi</state>
           <state>$PROJ_DIR$\..\..\..\Source\Application\DevUart</state>
+          <state>$PROJ_DIR$\..\..\..\Source\Application\BoundedQueue</state>
+          <state>$PROJ_DIR$\..\..\..\Source\Application\BEGP</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -3945,6 +3947,33 @@
   </configuration>
   <group>
     <name>Application</name>
+    <group>
+      <name>DevUart</name>
+      <group>
+        <name>BEGP</name>
+        <file>
+          <name>$PROJ_DIR$\..\..\..\Source\Application\BEGP\BEGP.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\..\..\Source\Application\BEGP\BEGP.h</name>
+        </file>
+      </group>
+      <group>
+        <name>BoundedQueue</name>
+        <file>
+          <name>$PROJ_DIR$\..\..\..\Source\Application\BoundedQueue\boundedQueue.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\..\..\..\Source\Application\BoundedQueue\boundedQueue.h</name>
+        </file>
+      </group>
+      <file>
+        <name>$PROJ_DIR$\..\..\..\Source\Application\DevUart\devUart.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\..\..\Source\Application\DevUart\devUart.h</name>
+      </file>
+    </group>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\common\cc26xx\board_lcd.c</name>
     </file>
@@ -3959,12 +3988,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage\customerInfoStorage.h</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\Source\Application\DevUart\devUart.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\Source\Application\DevUart\devUart.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\Source\Application\simpleBLEPeripheral.c</name>

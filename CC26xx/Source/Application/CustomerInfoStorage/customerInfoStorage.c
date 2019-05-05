@@ -56,7 +56,7 @@
 
 
  
-void fill_customerInfo(customerStorageBeaconInfo_t* p)
+void fill_customerInfo_byDefault(customerStorageBeaconInfo_t* p)
 {
   
   
