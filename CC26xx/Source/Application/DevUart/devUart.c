@@ -20,8 +20,8 @@
 
 
 
-static unsigned char uart_RxBuf[256];  
-static unsigned char uart_TxBuf[256];  
+static unsigned char uart_RxBuf[128];  
+static unsigned char uart_TxBuf[128];  
 static void dev_uart_callback(unsigned short rxLen, unsigned short txLen);
 
 static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
@@ -33,6 +33,11 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
     memcpy(uart_TxBuf, uart_RxBuf, rxLen);
     NPITLUART_writeTransport(rxLen);  
   }
+  else if(txLen > 0)//·¢ËÍ³É¹¦
+  {
+  
+  }
+    
 }
 
 

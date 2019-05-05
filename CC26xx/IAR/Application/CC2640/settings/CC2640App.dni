@@ -30,12 +30,6 @@ Fmt0=uint8[21]	4	0
 Fmt1=uint8_t[23]	4	0
 Fmt2=uint8_t[30]	4	0
 Fmt3=unsigned char[16]	4	0
-[Disassemble mode]
-mode=0
-[Breakpoints]
-Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.794.9" 0 0 0 0 "" 0 "" 0
-Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\DevUart\devUart.c}.34.5" 1 0 0 0 "" 0 "" 0
-Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -43,6 +37,12 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Disassemble mode]
+mode=0
+[Breakpoints]
+Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.794.9" 0 0 0 0 "" 0 "" 0
+Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\DevUart\devUart.c}.34.5" 1 0 0 0 "" 0 "" 0
+Count=2
 [Aliases]
 Count=0
 SuppressDialog=0
