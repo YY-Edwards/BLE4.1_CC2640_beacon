@@ -736,6 +736,9 @@ static void SimpleBLEPeripheral_init(void)
  */
 static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
 {
+  //用来获取是否栈溢出
+  Task_Stat statbuf;
+  
   // Initialize application
   SimpleBLEPeripheral_init();
 
@@ -820,6 +823,11 @@ static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
 
       // Perform periodic application task
       SimpleBLEPeripheral_UART_performPeriodicTask();
+      
+      Task_stat(Task_self(), &statbuf); /* call func to get status */
+      if (statbuf.used > (statbuf.stackSize * 9 / 10)) {
+      //System_printf("Over 90% of task's stack is in use.\n");
+      }
     }
 
     

@@ -3,8 +3,12 @@
 
 RingQueue_t create_queue(unsigned int deep, unsigned int size)
 {
-  
-   RingQueue_t ring_queue = malloc(sizeof(dyn_ring_queue_t));
+  RingQueue_t ring_queue = NULL;
+#ifdef USE_ICALL
+  ring_queue = (RingQueue_t)ICall_malloc(sizeof(dyn_ring_queue_t));
+#else
+  ring_queue = (RingQueue_t)malloc(sizeof(dyn_ring_queue_t));
+#endif
   if(ring_queue ==NULL)return NULL;
   
   unsigned short array_deep     = deep;
@@ -15,8 +19,13 @@ RingQueue_t create_queue(unsigned int deep, unsigned int size)
   ring_queue->queue_deep        = deep;
   ring_queue->data_size         = size;
   ring_queue->queue_point       = NULL;
- 
-  ring_queue->queue_point = malloc(array_deep*sizeof(dyn_size_packet_t));//分配二维队列深度内存
+
+#ifdef USE_ICALL
+  ring_queue->queue_point = (dyn_size_packet_t *)ICall_malloc(array_deep*sizeof(dyn_size_packet_t));
+#else
+  ring_queue->queue_point = (dyn_size_packet_t *)malloc(array_deep*sizeof(dyn_size_packet_t));
+#endif
+  //ring_queue->queue_point = malloc(array_deep*sizeof(dyn_size_packet_t));//分配二维队列深度内存
   if(ring_queue->queue_point == NULL)
   {
     free(ring_queue);
@@ -26,7 +35,14 @@ RingQueue_t create_queue(unsigned int deep, unsigned int size)
   for(int i =0; i < (ring_queue->queue_deep); i++)
   {
     (ring_queue->queue_point +i)->data = NULL;
-    (ring_queue->queue_point +i)->data = malloc(data_size);//分配队列宽度内存
+    
+#ifdef USE_ICALL
+  (ring_queue->queue_point +i)->data = (char *)ICall_malloc(data_size);
+#else
+  (ring_queue->queue_point +i)->data = (char *)malloc(data_size);
+#endif
+  
+    //(ring_queue->queue_point +i)->data = malloc(data_size);//分配队列宽度内存
     if((ring_queue->queue_point +i)->data ==NULL)
     {
       free((ring_queue->queue_point +i)->data);

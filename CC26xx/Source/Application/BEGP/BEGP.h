@@ -25,9 +25,11 @@ extern "C"
 #define BEGP_CONTROL_TYPE 0x00  
    
 #define BEGP_RESPONSE_ACK 0x00    
-  
+
+#define BEGP_ALLOCATION_MAX_QUEUE_DEEP 7    
 #define MAX_FIELDS_LEN 64
 #define MAX_BEGP_LEN (MAX_FIELDS_LEN + 4)  
+#define BEGP_ALLOCATION_MAX_QUEUE_SIZE MAX_BEGP_LEN  
   
 /*********************************************************************
  * TYPEDEFS

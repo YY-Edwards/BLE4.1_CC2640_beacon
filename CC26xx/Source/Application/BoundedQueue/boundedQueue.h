@@ -11,6 +11,9 @@ extern "C"
 #include "stdbool.h"
 #include "stdlib.h"
 #include "string.h"
+#ifdef USE_ICALL
+#include "ICall.h"
+#endif
 
 #define QUEUEDEEP 10
 #define DATADEEP  64

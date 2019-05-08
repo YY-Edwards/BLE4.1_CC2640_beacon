@@ -14,7 +14,7 @@ xds100foundProbes=
 xdsResetStyle=0
 xdsResetStrategy=3
 [DebugChecksum]
-Checksum=-982179763
+Checksum=-179610436
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
@@ -36,7 +36,8 @@ mode=0
 Bp0=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon\beaconconfig_profile.c}.794.9" 0 0 0 0 "" 0 "" 0
 Bp1=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\DevUart\devUart.c}.64.3" 1 0 0 0 "" 0 "" 0
 Bp2=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\BEGP\BEGP.c}.92.7" 1 0 0 0 "" 0 "" 0
-Count=3
+Bp3=_ "STD_CODE" "{C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\simpleBLEPeripheral.c}.828.7" 1 0 0 0 "" 0 "" 0
+Count=4
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
