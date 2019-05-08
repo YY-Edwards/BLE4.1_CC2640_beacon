@@ -43,6 +43,7 @@ extern "C"
  
  typedef customerStorageBeaconInfo_t  beaconInfo_content_t; 
   
+#define BEGP_DEFAULT_VALUE       0xFF   
   //header
   typedef struct{
   
@@ -71,9 +72,18 @@ extern "C"
   //A field consists of a field identifier followed by field data. 
   //The length of field data is dependent upon the field identifier.
   
- 
-
-#define BEGP_FIELD_IDENTIFIER_SET_BEACON 0X68    
+ #define BEGP_FIELD_FILTER_IDENTIFIER                           0XF0
+  
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON                        0X60  
+  
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_NAME                   0X61 
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_ADV_INTERVAL           0X62
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_TX_POWER               0X63 
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_UUID                   0X64 
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_MAJOR                  0X65
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_MINOR                  0X66 
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_RSSI                   0X67
+#define BEGP_FIELD_IDENTIFIER_SET_BEACON_ALL                    0X68    
 typedef struct{
     
     unsigned char       identifier;//fixed:0x68 
@@ -83,7 +93,7 @@ typedef struct{
 typedef struct{
     
     unsigned char       identifier;//fixed:0x68 
-    beaconInfo_content_t beaconInfo_content;
+    beaconInfo_content_t beaconAllInfo;
 //    unsigned char       dev_name[CUSTOMER_MAX_BEAON_NAME_LEN];//assic
 //    unsigned short      adv_interval_ms;
 //    unsigned char       dev_tx_power;
@@ -93,9 +103,17 @@ typedef struct{
 //    unsigned short      rssi_one_meter;  
     
   }begp_field_get_beacon_reply_t;//identifier:0x68; 46bytes.
-  
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON                        0X50 
 
-#define BEGP_FIELD_IDENTIFIER_GET_BEACON 0X58  
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_NAME                   0X51 
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_ADV_INTERVAL           0X52
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_TX_POWER               0X53 
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_UUID                   0X54 
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_MAJOR                  0X55
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_MINOR                  0X56 
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_RSSI                   0X57
+#define BEGP_FIELD_IDENTIFIER_GET_BEACON_ALL                    0X58  
+
   typedef struct{
     
     unsigned char       identifier;//fixed:0x58
