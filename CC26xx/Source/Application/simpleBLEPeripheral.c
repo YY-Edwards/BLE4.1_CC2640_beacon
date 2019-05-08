@@ -449,7 +449,7 @@ static void update_scanrsp_data()
     VOID memset(&scanRspData[2], 0x00, 8);//暂定设备名称最大支持8个assic字符
     
     //设定名称
-    VOID memcpy(&scanRspData[2], (const void*)last_customerStorageBeaconInfo.dev_name, strlen(last_customerStorageBeaconInfo.dev_name));
+    VOID memcpy(&scanRspData[2], (const void*)last_customerStorageBeaconInfo.dev_name, strlen((const char *)last_customerStorageBeaconInfo.dev_name));
     //VOID memcpy(&scanRspData[2], SETTING_BEACON_NAME, sizeof(SETTING_BEACON_NAME) - 1);
     //设定广播间隔
     scanRspData[12] = LO_UINT16((uint16)(last_customerStorageBeaconInfo.adv_interval_ms/0.625));
@@ -602,7 +602,7 @@ static void SimpleBLEPeripheral_init(void)
   // Set the GAP Characteristics
   
    //1.向设备设定名称
-   GGS_SetParameter(GGS_DEVICE_NAME_ATT, strlen(last_customerStorageBeaconInfo.dev_name), last_customerStorageBeaconInfo.dev_name);
+   GGS_SetParameter(GGS_DEVICE_NAME_ATT, strlen((const char *)last_customerStorageBeaconInfo.dev_name), last_customerStorageBeaconInfo.dev_name);
 
   //2.向设备设定发射功率
   //设置发射功率：5dbm
