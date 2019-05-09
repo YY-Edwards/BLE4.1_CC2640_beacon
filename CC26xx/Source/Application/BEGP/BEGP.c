@@ -9,6 +9,8 @@ static     begp_parser_state_enum  begp_parser_state;
 static     unsigned short          rx_begp_msg_len = 0;    
 static     unsigned short          rx_begp_msg_idx = 0; 
 volatile   RingQueue_t             rx_begp_queue =NULL;
+volatile   bool                    BEGP_beacon_basicUpdate_flag = false;
+volatile   bool                    BEGP_beacon_additionalUpdate_flag = false;
 BEGP_callback_t                    BEGP_sendRspCB =NULL;
 
 static void process_BEGP_msg();
@@ -198,27 +200,36 @@ static void BEGP_onSetBeaconReq(unsigned char  recv_id, void* data)
   {
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_ALL://get beacon all info
       memcpy(&beaconAllInfo, data,  sizeof(beaconInfo_content_t));
+      BEGP_beacon_basicUpdate_flag = true;
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_NAME: 
       memcpy(beaconAllInfo.dev_name, data,  sizeof(beaconAllInfo.dev_name));
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_ADV_INTERVAL:
       beaconAllInfo.adv_interval_ms = *((uint16_t*)(data));
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_TX_POWER:  
       beaconAllInfo.dev_tx_power = *((uint8_t*)(data));
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_UUID:  
       memcpy(beaconAllInfo.uuid, data,  sizeof(beaconAllInfo.uuid));
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_MAJOR:  
       beaconAllInfo.major = *((uint16_t*)(data));
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_MINOR:  
       beaconAllInfo.minor = *((uint16_t*)(data));
+      BEGP_beacon_additionalUpdate_flag = true;
       break;
     case BEGP_FIELD_IDENTIFIER_SET_BEACON_RSSI:  
       beaconAllInfo.rssi_one_meter = *((uint16_t*)(data));
+      BEGP_beacon_basicUpdate_flag = true;
       break;
   default:
       break;
@@ -259,7 +270,6 @@ void process_BEGP_msg()
     case BEGP_FIELD_IDENTIFIER_SET_BEACON://set beacon     
       BEGP_onSetBeaconReq(id,
                           g_begp_fragment.base.field.begp_general_filed.data);
-      
       break;
       
     default:
@@ -274,6 +284,8 @@ bool begp_init(BEGP_callback_t cb)
   begp_parser_state = FIND_START_BYTE;
   rx_begp_msg_len = 0;
   rx_begp_msg_idx =0;
+  BEGP_beacon_basicUpdate_flag = false;
+  BEGP_beacon_additionalUpdate_flag = false;
   VOID memset(&g_begp_fragment, 0X00, sizeof(g_begp_fragment));
   VOID memset(&begp_RxBuf, 0X00, sizeof(begp_RxBuf));
   
