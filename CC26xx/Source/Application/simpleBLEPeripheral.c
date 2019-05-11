@@ -135,7 +135,7 @@
 #define SBP_PERIODIC_EVT_PERIOD               5000
 
 //设定串口轮询定时时间
-#define SBP_UART_PERIODIC_EVT_PERIOD               650
+#define SBP_UART_RX_EVT_PERIOD                       500
 
 
 //设定动态广播和动态扫描回应的第一次触发延迟
@@ -163,7 +163,7 @@
 #define SBP_BEACON_CHAR_CHANGE_EVT              0x0010  
 
 //添加自定义的周期事件
-#define SBP_UART_MONITORING_PERIODIC_EVT        0x0020  
+#define SBP_UART_MONITORING_EVT                 0x0020  
 //添加动态广播数据和动态扫描回应数据事件
 #define SBP_ADV_UPDATE_EVT                      0x0040 
 #define SBP_SCAN_RSP_UPDATE_EVT                 0x0080 
@@ -192,7 +192,7 @@ static ICall_Semaphore sem;
 static Clock_Struct periodicClock;
 
 //定义定时器结构体数据
-static Clock_Struct UartPeriodicClock;
+static Clock_Struct UartMonitoringClock;
 
 //定义广播数据更新和扫描回应数据更新定时器结构体数据
 static Clock_Struct AdvUpdateClock;
@@ -360,8 +360,12 @@ void SimpleBLEPeripheral_processOadWriteCB(uint8_t event, uint16_t connHandle,
 static void BeaconPRofileCharChangeCB(uint8_t paramID);
 static void BeaconProfile_processCharValueChangeEvt(uint8_t paramID);
 
-//定义周期事件的处理函数
-static void SimpleBLEPeripheral_UART_performPeriodicTask(void);
+//定义串口监测事件的处理函数
+static void SimpleBLEPeripheral_UART_performBEGPTask(void);
+
+static void SimpleBLEPeripheral_enableUARTMonitoringEvtCB(void);
+
+
 
 
 static void SimpleBLEPeripheral_clockHandler(UArg arg);
@@ -410,6 +414,15 @@ static oadTargetCBs_t simpleBLEPeripheral_oadCBs =
   SimpleBLEPeripheral_processOadWriteCB // Write Callback.
 };
 #endif //FEATURE_OAD
+
+
+
+static void SimpleBLEPeripheral_enableUARTMonitoringEvtCB(void)
+{
+  // //启动定时器
+  Util_startClock(&UartMonitoringClock);  
+}
+
 
 /*********************************************************************
  * PUBLIC FUNCTIONS
@@ -523,7 +536,6 @@ static void SimpleBLEPeripheral_init(void)
 //  Util_constructClock(&powerleavel_periodicClock, Mypoewer_clockHandler,
 //                     POWERCHECK_PERIOD, 0, false, POWERCHECK_EVENT);
     
-//  GAP_UpdateAdvertisingData();
 #ifndef SENSORTAG_HW
   Board_openLCD();
 #endif //SENSORTAG_HW
@@ -546,22 +558,23 @@ static void SimpleBLEPeripheral_init(void)
 //  fill_customerInfo(&last_customerStorageBeaconInfo);
 //  set_customerInfo(&last_customerStorageBeaconInfo);
 //  
-  //开启串口
-  dev_uart_init();
-  
   //从SNV中获取最新的配置信息
   VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
   get_customerInfo(&last_customerStorageBeaconInfo);
   
   
-    //创建串口接收数据监测事件
+    //注册串口接收数据监测事件
     //倒数第二个参数决定了创建，然后等待被启动-Util_startClock()
     //此函数可以设定第一次启动的延迟时间，以及后续的周期时间
-  Util_constructClock(&UartPeriodicClock, SimpleBLEPeripheral_clockHandler,
-                    SBP_UART_PERIODIC_EVT_PERIOD, 0, false, SBP_UART_MONITORING_PERIODIC_EVT);
- //启动定时器
-  Util_startClock(&UartPeriodicClock);  
+  Util_constructClock(&UartMonitoringClock, SimpleBLEPeripheral_clockHandler,
+                    SBP_UART_RX_EVT_PERIOD, 0, false, SBP_UART_MONITORING_EVT);
   
+    //开启串口,注册回调
+  dev_uart_init(SimpleBLEPeripheral_enableUARTMonitoringEvtCB);
+  
+  
+  
+
   //注册动态广播事件
   Util_constructClock(&AdvUpdateClock, SimpleBLEPeripheral_clockHandler,
                     SBP_ADV_UPDATE_EVT_PERIOD, 0, false, SBP_ADV_UPDATE_EVT);
@@ -835,19 +848,17 @@ static void SimpleBLEPeripheral_taskFxn(UArg a0, UArg a1)
     }
     
     
-    if (events & SBP_UART_MONITORING_PERIODIC_EVT)//确定自定义的串口监测周期事件触发
+    if (events & SBP_UART_MONITORING_EVT)//确定自定义的串口监测事件触发
     {
-      events &= ~SBP_UART_MONITORING_PERIODIC_EVT;//clear event    
+      events &= ~SBP_UART_MONITORING_EVT;//clear event    
 
       // Perform periodic application task
-      SimpleBLEPeripheral_UART_performPeriodicTask();
+      SimpleBLEPeripheral_UART_performBEGPTask();
       
       Task_stat(Task_self(), &statbuf); /* call func to get status */
       if (statbuf.used > (statbuf.stackSize * 9 / 10)) {
       //System_printf("Over 90% of task's stack is in use.\n");
       }
-      
-      Util_startClock(&UartPeriodicClock);//start again.
     }
     
      if (events & SBP_ADV_UPDATE_EVT)//动态广播事件
@@ -1308,7 +1319,7 @@ static void SimpleBLEPeripheral_processStateChangeEvt(gaprole_States_t newState)
 
 extern volatile   bool                    BEGP_beacon_basicUpdate_flag;
 extern volatile   bool                    BEGP_beacon_additionalUpdate_flag;
-static void SimpleBLEPeripheral_UART_performPeriodicTask(void)
+static void SimpleBLEPeripheral_UART_performBEGPTask(void)
 {
   BEGP_parse_task();
   

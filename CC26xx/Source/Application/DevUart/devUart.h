@@ -38,14 +38,16 @@ extern "C"
 /*********************************************************************
  * TYPEDEFS
  */
-
-
+//Typedef for call back function mechanism to notify SimpleBLEPeripheral_taskFxn()  that
+//an UART transaction has occurred
+ typedef void (*devUart_postSemCB_t)(void); 
    
 /*********************************************************************
  * API FUNCTIONS 
  */
 
-extern void dev_uart_init();
+extern void dev_uart_init(devUart_postSemCB_t cb);
+//extern void dev_uart_init();
 extern void dev_uart_wrtieTransport(void* ptr, uint16_t len);
 extern void dev_uart_readTransport(unsigned char* ptr, unsigned short len);
 

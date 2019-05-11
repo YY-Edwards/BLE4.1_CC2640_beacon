@@ -25,7 +25,7 @@ static  char uart_RxBuf[128];
 static  char uart_TxBuf[128];  
 static  void dev_uart_callback(unsigned short rxLen, unsigned short txLen);
 extern RingQueue_t  rx_begp_queue;
-
+devUart_postSemCB_t devUart_postSemCB =NULL;
 
 static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
 {
@@ -36,6 +36,12 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
     //memcpy(uart_TxBuf, uart_RxBuf, rxLen);
     //NPITLUART_writeTransport(rxLen);  
     push_to_queue(rx_begp_queue, uart_RxBuf, rxLen);
+    if(devUart_postSemCB)
+    {
+      devUart_postSemCB();//
+    }
+    
+    
   }
   else if(txLen > 0)//发送成功
   {
@@ -48,6 +54,10 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
  void dev_uart_wrtieTransport(void* ptr, uint16_t len)
  {
     memset(uart_TxBuf, 0, sizeof(uart_TxBuf));
+    if(len > sizeof(uart_TxBuf))
+    {
+      len = sizeof(uart_TxBuf);
+    }
     memcpy(uart_TxBuf, ptr, len);
     NPITLUART_writeTransport(len);  
  }
@@ -58,11 +68,12 @@ static void dev_uart_callback(unsigned short rxLen, unsigned short txLen)
  
  }
 
-void dev_uart_init(void)
+void dev_uart_init(devUart_postSemCB_t cb)
 {
    
   if(begp_init(dev_uart_wrtieTransport))
   {
+    devUart_postSemCB = cb;
     //初始化  
     NPITLUART_initializeTransport(uart_RxBuf, uart_TxBuf, dev_uart_callback);
   }
