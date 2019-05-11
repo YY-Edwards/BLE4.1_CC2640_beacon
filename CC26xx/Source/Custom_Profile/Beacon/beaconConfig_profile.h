@@ -123,8 +123,10 @@ extern bStatus_t BeaconConfigProfile_GetParameter( uint8 param, void *value );
 
 
 
-
-
+//此接口主要由应用层来使用
+//主动发起notify的一种方式
+ //注意，另一种方式里，需要主机发送一次“通知请求”给从机，从机收到“通知请求”才能发送通知。
+//实际上这个函数里依然会调用GATT_Notification这个函数。
 /*
  * BeaconConfigProfile_Notify - Notify a Simple GATT Profile parameter.
  *

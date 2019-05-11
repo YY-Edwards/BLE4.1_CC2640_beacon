@@ -133,8 +133,10 @@ static CONST gattAttrType_t beaconConfigProfileService = { ATT_UUID_SIZE, beacon
 
 // Beacon Config Profile Characteristic 1 Properties
 //添加char1UUID的时，用到read and notify 两个通道
-//由于属性包含GATT_PROP_NOTIFY方式，所以必须要有个通知开关simpleProfileChar1Config
-//读写属性只有3个变量，而含有notify属性的特征值会多一个开关config，所以是4个变量
+//由于属性包含GATT_PROP_NOTIFY方式，所以必须要有个通知开关，即simpleProfileChar1Config
+//读写属性只有3个变量，而含有notify属性的特征值会多一个开关config，所以是4个变量（属性）
+
+//特征1，能读和可配置为通知（无需ack），21字节数据
 static uint8 beaconConfigProfileChar1Props = GATT_PROP_READ | GATT_PROP_NOTIFY;
 
 // Characteristic 1 Value
@@ -153,6 +155,7 @@ static uint8 beaconConfigProfileChar1UserDesp[30] = "Beacon char1 desp";
 
 // Beacon Config Profile Characteristic 2 Properties
 //添加char1UUID的时，用到write通道
+//特征2，无回应的写，21字节
 static uint8 beaconConfigProfileChar2Props = GATT_PROP_WRITE_NO_RSP;
 
 // Characteristic 2 Value
@@ -169,6 +172,7 @@ static uint8 char1len = 1,char2len = 1;
 //以下是3个测试特征
 // Beacon Config Profile Characteristic 3 Properties
 //write通道
+//特征3，能写1个字节
 static uint8 beaconConfigProfileChar3Props = GATT_PROP_WRITE;
 
 // Characteristic 3 Value
@@ -181,6 +185,7 @@ static uint8 beaconConfigProfileChar3UserDesp[17] = "Characteristic 3";
 
 // Beacon Config Profile Characteristic 4 Properties
 //notify通道
+//特征4，通知1个字节数据
 static uint8 beaconConfigProfileChar4Props = GATT_PROP_NOTIFY;
 
 // Characteristic 4 Value
@@ -199,6 +204,7 @@ static uint8 beaconConfigProfileChar4UserDesp[17] = "Characteristic 4";
 
 // Beacon Config Profile Characteristic 5 Properties
 //read通道
+//特征5，能读5个字节数据
 static uint8 beaconConfigProfileChar5Props = GATT_PROP_READ;
 
 // Characteristic 5 Value
@@ -416,7 +422,7 @@ CONST gattServiceCBs_t beaconConfigProfileCBs =
 /*********************************************************************
  * PUBLIC FUNCTIONS
  */
-
+//参见SWRU393_CC2640_BLE_Software_Developer's_Guide.pdf =》5.3.4.2.2
 /*********************************************************************
  * @fn      BeaconConfigProfile_AddService
  *
@@ -432,6 +438,7 @@ bStatus_t BeaconConfigProfile_AddService( uint32 services )
 {
   uint8 status;
 
+  //只有通知属性的才需要初始化通知开关属性
   //给特征1和特征4的配置分配空间
   // Allocate Client Characteristic Configuration table
   beaconConfigProfileChar1Config = (gattCharCfg_t *)ICall_malloc( sizeof(gattCharCfg_t) *
@@ -445,16 +452,16 @@ bStatus_t BeaconConfigProfile_AddService( uint32 services )
     return ( bleMemAllocError );
   }
   //通知属性需要初始化通知开关属性
-  
   // Initialize Client Characteristic Configuration attributes
   GATTServApp_InitCharCfg( INVALID_CONNHANDLE, beaconConfigProfileChar1Config );
   GATTServApp_InitCharCfg( INVALID_CONNHANDLE, beaconConfigProfileChar4Config );
   
   
   //判断上层用户添加服务的ID号
-  if ( services & BEACONCONFIGPROFILE_SERVICE )
+  if ( services & BEACONCONFIGPROFILE_SERVICE )//这句可有可无
   {
     // Register GATT attribute list and CBs with GATT Server App
+    //这里还指定了加密的长度限制
     status = GATTServApp_RegisterService( beaconConfigProfileAttrTbl, 
                                           GATT_NUM_ATTRS( beaconConfigProfileAttrTbl ),
                                           GATT_MAX_ENCRYPT_KEY_SIZE,
@@ -522,6 +529,7 @@ bStatus_t BeaconConfigProfile_SetParameter( uint8 param, uint8 len, void *value 
         
         //通知
          // See if Notification has been enabled
+        //需要客户端打开通知功能
         GATTServApp_ProcessCharCfg( beaconConfigProfileChar1Config, beaconConfigProfileChar1, FALSE,
                                     beaconConfigProfileAttrTbl, GATT_NUM_ATTRS( beaconConfigProfileAttrTbl ),
                                     INVALID_TASK_ID, beaconConfigProfile_ReadAttrCB );
@@ -695,8 +703,8 @@ static bStatus_t beaconConfigProfile_ReadAttrCB(uint16_t connHandle,
       // No need for "GATT_SERVICE_UUID" or "GATT_CLIENT_CHAR_CFG_UUID" cases;
       // gattserverapp handles those reads
 
-      // characteristics 1 and 2 have read permissions
-      // characteritisc 3 does not have read permissions; therefore it is not
+      // characteristics 1 and 5 have read permissions
+      // characteritisc 2 and 3 does not have read permissions; therefore it is not
       //   included here
       // characteristic 4 does not have read permissions, but because it
       //   can be sent as a notification, it is included here
@@ -720,7 +728,7 @@ static bStatus_t beaconConfigProfile_ReadAttrCB(uint16_t connHandle,
         break;
         
       default:
-        // Should never get here! (characteristics 3 and 4 do not have read permissions)
+        // Should never get here! (characteristics 2，3 and 4 do not have read permissions)
         *pLen = 0;
         status = ATT_ERR_ATTR_NOT_FOUND;
         break;
@@ -812,7 +820,7 @@ static bStatus_t beaconConfigProfile_WriteAttrCB(uint16_t connHandle,
              
         break;
 
-      case GATT_CLIENT_CHAR_CFG_UUID://APP开启通知功能
+      case GATT_CLIENT_CHAR_CFG_UUID://客户端开启通知功能
         
         //如果没添加会导致通知开关打不开，以至于从机无法主动发送数据到主机
         //CHAR1的通知开关
@@ -864,6 +872,7 @@ static bStatus_t beaconConfigProfile_WriteAttrCB(uint16_t connHandle,
     }
   }
 
+  //这里只是为通知应用层，有状态变化的操作发生了,应用层可据此决定是否向客户端发送通知
   // If a characteristic value changed then callback function to notify application of change
   if ( (notifyApp != 0xFF ) && beaconConfigProfile_AppCBs && beaconConfigProfile_AppCBs->pfnBeaconConfigProfileChange )
   {
@@ -872,6 +881,8 @@ static bStatus_t beaconConfigProfile_WriteAttrCB(uint16_t connHandle,
   
   return ( status );
 }
+
+
 
 /*********************************************************************
  * @fn      BeaconConfigProfile_Notify

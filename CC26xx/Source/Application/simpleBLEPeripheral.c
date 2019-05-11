@@ -694,7 +694,7 @@ static void SimpleBLEPeripheral_init(void)
   
 #ifndef FEATURE_OAD
   
-  //init char value
+  //init characteristic value
   uint8_t BeaconProfile_char1value[21] = { 1, 2, 3, 4, 5 };
   
   BeaconConfigProfile_SetParameter(BEACONCONFIGPROFILE_CHAR1, sizeof(uint8_t),
