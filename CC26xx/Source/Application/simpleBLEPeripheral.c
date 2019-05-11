@@ -56,7 +56,7 @@
 #include "simpleGATTprofile.h"
   
 //新增beacon_profile
-#include "beaconconfig_profile.h"   
+#include "beaconConfig_profile.h"   
 #include "customerDefaultConfig.h"
    
 //新增头文件
@@ -357,7 +357,7 @@ void SimpleBLEPeripheral_processOadWriteCB(uint8_t event, uint16_t connHandle,
 #endif //FEATURE_OAD
 
 //声明服务的回调函数和处理函数
-static void BeaconPRofileCharChangeCB(uint8_t paramID);
+static void BeaconProfileCharChangeCB(uint8_t paramID);
 static void BeaconProfile_processCharValueChangeEvt(uint8_t paramID);
 
 //定义串口监测事件的处理函数
@@ -401,9 +401,9 @@ static simpleProfileCBs_t SimpleBLEPeripheral_simpleProfileCBs =
   SimpleBLEPeripheral_charValueChangeCB // Characteristic value change callback
 };
 //注册回调函数
-static beaconconfigProfileCBs_t SimpleBLEPeripheral_BeaconProfileCBs =
+static beaconConfigProfileCBs_t SimpleBLEPeripheral_BeaconProfileCBs =
 {
-  BeaconPRofileCharChangeCB // Characteristic value change callback
+  BeaconProfileCharChangeCB // Characteristic value change callback
 };
 
 #endif //!FEATURE_OAD
@@ -1342,7 +1342,7 @@ static void SimpleBLEPeripheral_UART_performBEGPTask(void)
 
 #ifndef FEATURE_OAD
 //定义服务的回调函数
-static void BeaconPRofileCharChangeCB(uint8_t paramID)
+static void BeaconProfileCharChangeCB(uint8_t paramID)
 {
   //传递注册的事件
   SimpleBLEPeripheral_enqueueMsg(SBP_BEACON_CHAR_CHANGE_EVT, paramID);

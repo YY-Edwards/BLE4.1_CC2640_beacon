@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>3135997866</fileChecksum>
+  <fileChecksum>1668902128</fileChecksum>
   <configuration>
     <name>FlashOnly_OAD_ImgB</name>
     <outputs/>
@@ -48,7 +48,7 @@
       <file>$PROJ_DIR$\FlashROM\Obj\ICallCC2650.o</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\Roles\gapbondmgr.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\ICall\Include\ICallBleAPIMSG.h</file>
-      <file>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.c</file>
+      <file>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.c</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\DevInfo\devinfoservice.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\ble\include\gatt_uuid.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\GATT\gattservapp_util.c</file>
@@ -64,7 +64,7 @@
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\icall\ports\tirtos\ICall.c</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\icall\ports\tirtos\ICallCC2650.c</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\ble\include\gap.h</file>
-      <file>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.h</file>
+      <file>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Include\gatt_profile_uuid.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\ble\host\gatt_uuid.c</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\icall\include\ICall.h</file>
@@ -225,7 +225,7 @@
       <file>$PROJ_DIR$\..\..\..\..\..\Include\gattservapp.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\cc26xxware_2_21_01_15600\inc\hw_ccfg.h</file>
       <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-      <file>$PROJ_DIR$\FlashROM\Obj\beaconconfig_profile.o</file>
+      <file>$PROJ_DIR$\FlashROM\Obj\beaconConfig_profile.o</file>
       <file>$PROJ_DIR$\FlashROM\Obj\simpleGATTprofile.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\Components\ble\host\linkdb.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\bios_6_42_00_08\packages\ti\sysbios\interfaces\ITaskSupport.h</file>
@@ -288,7 +288,7 @@
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\bios_6_42_00_08\packages\ti\sysbios\knl\Queue.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\bios_6_42_00_08\packages\ti\sysbios\interfaces\IHwi.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\cc26xxware_2_21_01_15600\inc\hw_nvic.h</file>
-      <file>$PROJ_DIR$\FlashROM\Obj\beaconconfig_profile.pbi</file>
+      <file>$PROJ_DIR$\FlashROM\Obj\beaconConfig_profile.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\bios_6_42_00_08\packages\ti\sysbios\BIOS__epilogue.h</file>
       <file>$PROJ_DIR$\FlashROM\Obj\simpleBLEPeripheral.__cstat.et</file>
       <file>$PROJ_DIR$\configPkg\compiler.opt.defs</file>
@@ -302,7 +302,7 @@
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\cc26xxware_2_21_01_15600\inc\hw_ints.h</file>
       <file>$PROJ_DIR$\FlashROM\Obj\ccfg_appBLE.pbi</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\xdctools_3_31_01_33_core\packages\xdc\runtime\IModule.h</file>
-      <file>$PROJ_DIR$\FlashROM\Obj\beaconconfig_profile.__cstat.et</file>
+      <file>$PROJ_DIR$\FlashROM\Obj\beaconConfig_profile.__cstat.et</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\xdctools_3_31_01_33_core\packages\xdc\runtime\package\Main_Module_GateProxy.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\bios_6_42_00_08\packages\ti\sysbios\knl\Event.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\xdctools_3_31_01_33_core\packages\xdc\runtime\Types__prologue.h</file>
@@ -361,7 +361,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 202 179 124 100 94 109 274 86 165 95 176 45 166 218 3</file>
+          <file> 179 274 86 94 165 124 100 109 202 95 176 45 166 218 3</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -388,7 +388,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 281 95 142 279 84 285 93 292 293 262 86 82 286 81 132 110 270 241 139 145 184 124 100 94 283 224 226 287 232 288 272 255 116 156 141 92 274 202 130 294 102 295 99 222 267 261 263 273 107 137 277 230 0 62 126 229 109 166 218 96 214 264 129 167 195 135 78 164 228 282 206 101 151 257 225 105 61 111 265 59 168 193 296 276</file>
+          <file> 78 279 95 166 292 222 273 94 82 132 286 270 142 241 86 229 93 293 167 195 81 263 184 264 228 282 206 151 225 288 255 116 156 141 92 218 96 202 214 294 281 285 129 135 164 272 145 110 101 257 107 137 277 230 0 62 126 109 274 124 100 130 139 84 283 224 232 287 102 226 295 99 267 261 262 105 61 111 265 59 168 193 296 276</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -415,7 +415,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 86 184 114 274 218 230 124 166 202 201 94 100 95 122</file>
+          <file> 94 114 230 86 100 95 202 201 274 124 166 218 184 122</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -442,7 +442,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 293 286 99 230 132 93 279 267 185 94 78 82 257 270 179 138 61 121 129 86 274 283 224 232 222 263 292 110 142 234 202 107 137 265 116 139 73 92 109 124 100 96 253 89 135 81 294 273 225 295 95 191 198 184 190 160 255 275 45 10 296 48 102 229 166 218 281 287 285 226 145 262 167 195 272 164 228 276 251 156 111 277 241 193</file>
+          <file> 89 86 93 293 82 142 202 279 81 185 92 166 285 135 232 270 164 61 121 102 109 253 132 262 167 195 273 272 160 276 230 107 137 265 116 139 73 218 286 222 263 78 110 257 228 138 296 95 251 156 255 275 45 10 48 129 229 94 274 124 100 96 283 224 281 287 226 145 292 294 225 295 99 267 179 191 234 198 184 190 111 277 241 193</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -505,7 +505,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 249 94 24 127 86 166 148 179 182 28 218 160 183 191 95 109 121 41 205 37 200 12 165 274 124 100 234 138 202 298 45 172 176</file>
+          <file> 202 191 24 124 100 94 234 86 121 172 127 138 45 182 28 274 298 205 37 200 12 109 165 166 218 160 183 148 95 179 249 41 176</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -532,7 +532,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 78 110 148 111 124 226 52 285 279 222 270 295 81 286 82 109 10 100 94 287 80 263 93 137 179 230 129 132 142 292 293 206 151 257 145 202 121 127 182 255 95 139 117 229 96 140 228 273 101 277 191 289 106 234 116 296 160 41 74 53 274 86 232 281 223 135 294 164 225 288 168 276 172 138 183 177 128 103 265 193 258 155 209 141 37 205 200 24 25 165 166 218 92 102 283 224 99 267 261 167 195 272 262 282 105 107 184 241 298 45 249 113 152 252 150 260 231 147 240 176</file>
+          <file> 82 230 95 222 202 281 286 293 145 182 255 10 232 93 223 257 121 127 263 81 132 295 110 137 148 179 109 52 111 139 117 94 86 166 92 129 279 287 142 206 277 191 289 106 234 116 296 160 41 74 53 218 285 80 140 99 267 261 273 225 288 168 276 172 138 183 177 128 103 265 193 258 155 209 141 37 205 200 24 25 165 274 124 100 229 96 102 283 224 226 135 78 292 294 164 228 270 101 151 167 195 272 262 282 105 107 184 241 298 45 249 113 152 252 150 260 231 147 240 176</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -541,7 +541,7 @@
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.c</name>
+      <name>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>
@@ -559,7 +559,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 298 182 109 24 94 191 127 274 202 121 41 28 86 165 124 100 234 138 45 249 205 37 200 42 166 218 160 183 148 95 179 172 176</file>
+          <file> 182 124 109 86 160 191 24 183 95 127 218 121 172 28 165 166 94 148 179 205 37 200 42 274 100 234 138 202 298 45 249 41 176</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -613,7 +613,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 167 93 84 270 109 293 202 96 132 195 95 286 82 263 145 288 274 139 285 142 275 277 242 86 81 281 229 111 273 101 225 262 282 126 156 98 165 124 100 94 130 110 232 279 287 102 99 222 267 179 230 265 137 296 206 151 45 160 91 125 166 218 92 214 264 283 224 292 294 129 226 295 135 78 164 228 272 61 184 107 255 241 276 138 257 253 89 168 176 193 116 261 260 141 258 105</file>
+          <file> 293 82 93 270 94 286 292 287 109 202 226 95 263 145 288 132 222 81 142 275 277 242 86 166 92 214 279 229 111 273 101 225 262 282 126 156 98 165 218 264 294 102 232 295 99 267 179 230 265 137 296 206 151 110 45 160 91 125 274 124 100 96 130 139 84 283 224 281 285 129 167 195 135 78 164 228 272 61 184 107 255 241 276 138 257 253 89 168 176 193 116 261 260 141 258 105</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -640,7 +640,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 121 27 86 160 45 37 218 124 182 43 94 166 191 202 249 127 28 200 109 165 274 100 234 138 298 176 183 148 95 179</file>
+          <file> 121 27 124 100 94 234 86 45 37 138 182 43 274 191 202 249 127 28 200 109 165 166 218 160 298 176 183 148 95 179</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -667,7 +667,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 222 202 61 270 137 142 232 279 283 78 93 273 101 30 169 286 287 132 82 255 141 33 112 124 100 94 264 263 168 95 86 145 229 274 129 293 81 99 267 262 206 151 282 48 160 184 107 276 230 116 165 196 288 139 45 34 119 133 92 109 166 218 96 226 214 295 135 228 246 110 179 138 190 111 171 224 102 281 285 272 126 130 84 292 294 167 195 164 257 225 261 105 251 156 193 296 277 265 241 176</file>
+          <file> 222 202 61 270 137 287 232 279 86 93 82 78 273 101 30 169 286 226 130 293 132 255 141 33 112 218 94 283 102 263 168 95 145 142 264 229 166 96 224 126 110 81 99 267 262 206 151 282 48 160 184 107 276 230 116 165 196 288 139 45 34 119 133 92 109 274 124 100 84 295 135 228 246 179 138 190 111 171 129 281 285 272 214 292 294 167 195 164 257 225 261 105 251 156 193 296 277 265 241 176</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -694,7 +694,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 86 81 279 179 89 96 82 94 132 286 93 259 202 274 124 253 135 222 293 292 263 232 110 257 88 100 95 229 109 283 224 78 287 102 272 144 275 45 166 218 145 92 281 142 285 294 270 262 167 195 273 30 129 226 225 295</file>
+          <file> 81 132 82 279 179 94 286 89 86 96 93 259 202 166 124 253 135 222 293 292 263 232 110 257 88 218 229 109 283 224 78 287 102 272 144 275 45 274 100 95 145 92 281 142 285 294 270 262 167 195 273 30 129 226 225 295</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -721,7 +721,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 218 127 160 86 298 37 94 166 191 45 202 182 28 234 138 274 124 100 183 148 95 179 109 121 249</file>
+          <file> 183 95 191 127 160 124 100 94 37 274 148 179 86 182 28 234 138 202 166 218 298 45 109 121 249</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -775,7 +775,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 277 86 160 137 121 53 45 128 103 111 117 251 218 202 138 191 182 177 265 230 296 41 46 120 94 166 109 298 127 52 289 152 260 241 95 276 37 200 24 25 165 274 124 100 179 172 234 183 148 249 113 106 252 116 150 231 147 240 107 255 176 193 184 258 155</file>
+          <file> 277 160 137 94 182 289 53 202 298 121 111 117 251 86 166 109 127 52 265 230 296 41 46 120 218 138 191 45 177 128 103 152 260 241 95 276 37 200 24 25 165 274 124 100 179 172 234 183 148 249 113 106 252 116 150 231 147 240 107 255 176 193 184 258 155</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -802,7 +802,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 45 86 191 94 121 127 274 53 234 138 124 100 166 128 202 1 176 160 218 298 109 249 68 52 182 106 183 148 95 179 165</file>
+          <file> 45 86 191 94 121 127 124 100 53 234 138 274 166 128 202 1 176 160 218 298 109 249 68 52 182 106 183 148 95 179 165</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -829,7 +829,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 276 82 288 279 111 93 286 124 160 182 10 261 262 270 95 127 200 73 229 86 293 167 195 272 142 138 191 202 121 296 150 265 137 240 255 110 263 1 74 109 166 81 102 287 232 292 273 45 252 116 231 230 147 107 117 52 3 145 37 12 66 53 215 165 218 94 132 96 281 285 226 222 294 105 113 106 234 298 152 277 260 241 179 130 141 46 27 42 68 301 24 25 0 156 59 274 100 206 101 151 92 283 224 129 135 78 295 257 225 282 168 177 289 128 183 148 103 193 184 258 155 249 172 61 139 84 99 267 176 41 62 126 214 264 164 228</file>
+          <file> 82 279 286 142 276 287 93 160 265 249 10 81 132 177 103 111 95 202 200 73 218 94 110 206 145 168 148 179 137 263 1 74 109 86 96 129 285 293 78 294 257 273 128 234 296 193 184 277 258 230 121 52 3 37 12 66 53 215 165 166 261 229 283 224 232 281 135 292 295 225 270 282 289 138 183 191 106 116 255 155 182 130 288 141 117 46 27 42 68 301 24 25 0 156 59 274 124 100 101 151 92 102 222 226 167 195 272 262 105 113 298 45 152 252 150 260 231 241 147 240 107 127 172 61 139 84 99 267 176 41 62 126 214 264 164 228</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -856,7 +856,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 94 286 93 102 135 82 273 110 293 285 142 81 263 257 274 132 287 138 141 121 225 262 92 124 100 96 279 78 232 222 226 167 195 270 145 261 206 168 45 74 229 86 109 166 218 202 283 224 281 129 282 272 191 234 95 292 294 295 288 101 151 105 179 160</file>
+          <file> 93 287 102 94 218 202 81 82 273 286 110 142 263 257 86 283 224 293 132 138 141 121 225 262 92 166 232 222 226 167 195 270 145 261 279 206 168 45 74 229 109 274 124 100 96 135 78 281 285 129 282 272 191 234 95 292 294 295 288 101 151 105 179 160</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -883,7 +883,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 132 289 93 285 261 279 270 273 142 230 296 66 229 109 82 293 232 110 86 176 81 166 96 286 281 135 292 288 94 121 255 202 95 179 141 117 287 145 218 129 78 294 167 195 225 272 52 138 183 191 106 234 116 277 155 137 276 3 263 83 91 206 101 151 92 274 124 100 283 224 102 222 226 295 257 262 105 177 128 160 148 103 265 111 193 184 258 282 168 165 85 182 113 298 45 152 252 150 260 231 241 147 240 107 301 68</file>
+          <file> 81 289 293 132 286 261 93 273 142 230 296 66 279 229 109 218 94 82 110 86 176 226 287 288 121 255 202 95 179 141 117 145 166 96 283 224 129 232 222 295 225 272 270 52 138 183 191 106 234 116 277 155 137 276 3 263 83 91 206 101 151 92 274 124 100 102 281 285 135 78 292 294 167 195 257 262 105 177 128 160 148 103 265 111 193 184 258 282 168 165 85 182 113 298 45 152 252 150 260 231 241 147 240 107 301 68</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -929,7 +929,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 160 68 95 86 202 124 100 94 45 191 3 234 138 274 176 109 179 301 166 218 165</file>
+          <file> 160 94 68 95 86 202 124 100 45 191 3 234 138 274 176 109 179 301 166 218 165</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -1029,7 +1029,7 @@
       <file>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\products\cc26xxware_2_21_01_15600\inc\hw_aon_event.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\Roles\gapbondmgr.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\ICall\Include\ICallBleAPIMSG.h</file>
-      <file>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.c</file>
+      <file>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.c</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\DevInfo\devinfoservice.h</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\GATT\gattservapp_util.c</file>
       <file>$PROJ_DIR$\..\..\..\..\..\Profiles\DevInfo\CC26xx\devinfoservice.c</file>
@@ -1324,7 +1324,7 @@
       </outputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.c</name>
+      <name>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.c</name>
       <outputs>
         <tool>
           <name>BICOMP</name>

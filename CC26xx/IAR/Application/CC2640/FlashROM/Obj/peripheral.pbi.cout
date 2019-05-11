@@ -60,7 +60,7 @@ C:\ti\tirtos_simplelink_2_13_00_06\packages
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS
 -I
-C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\custom_profile\beacon
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Custom_Profile\Beacon
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\IAR\Application\CC2640\..\..\..\Source\Application\CustomerInfoStorage
 -I
@@ -128,7 +128,7 @@ C:\ti\tirtos_simplelink_2_13_00_06\packages
 -I
 C:\ti\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS
 -I
-C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\custom_profile\beacon
+C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Custom_Profile\Beacon
 -I
 C:\ti\simplelink\ble_cc26xx_2_01_01_44627_for_EW7.42\Projects\ble\SimpleBLEPeripheral\CC26xx\Source\Application\CustomerInfoStorage
 -I

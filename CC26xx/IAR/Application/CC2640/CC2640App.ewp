@@ -334,7 +334,7 @@
           <state>$CC26XXWARE$</state>
           <state>$TI_RTOS_DRIVERS_BASE$</state>
           <state>$PROJ_DIR$\..\..\..\..\..\..\..\..\..\tirtos_simplelink_2_13_00_06\packages\ti\boards\SRF06EB\CC2650EM_4XS</state>
-          <state>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon</state>
+          <state>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon</state>
           <state>$PROJ_DIR$\..\..\..\Source\Application\CustomerInfoStorage</state>
           <state>$PROJ_DIR$\..\..\..\..\..\..\..\Components\npi</state>
           <state>$PROJ_DIR$\..\..\..\Source\Application\DevUart</state>
@@ -4187,10 +4187,10 @@
   <group>
     <name>PROFILES</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.c</name>
+      <name>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\Source\custom_profile\beacon\beaconconfig_profile.h</name>
+      <name>$PROJ_DIR$\..\..\..\Source\Custom_Profile\Beacon\beaconConfig_profile.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\Profiles\DevInfo\CC26xx\devinfoservice.c</name>
