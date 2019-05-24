@@ -59,7 +59,6 @@
 void fill_customerInfo_byDefault(customerStorageBeaconInfo_t* p)
 {
   
-  
   if(p!=NULL)
   {
     VOID strncpy((char*)p->dev_name, SETTING_BEACON_NAME, strlen(SETTING_BEACON_NAME));

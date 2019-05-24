@@ -52,14 +52,14 @@ extern "C"
 
 
 //3.设置主修
-#define SETTING_BEACON_MAJOR            27 //默认值十进制的27.
+#define SETTING_BEACON_MAJOR            29 //默认值十进制的27.
 /*
 可设定值范围0~65535
 */                                    
 
                                     
 //4.设置辅修
-#define SETTING_BEACON_MINOR            42568 //默认值为十进制的42568.
+#define SETTING_BEACON_MINOR            42377 //默认值为十进制的42568.
 /*
 可设定值范围0~65535
 */                                       

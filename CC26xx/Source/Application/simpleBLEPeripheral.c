@@ -555,9 +555,9 @@ static void SimpleBLEPeripheral_init(void)
 //  set_customerInfo(&test_customerStorageBeaconInfo);
   //get
 //  VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
-//  fill_customerInfo(&last_customerStorageBeaconInfo);
+//  fill_customerInfo_byDefault(&last_customerStorageBeaconInfo);
 //  set_customerInfo(&last_customerStorageBeaconInfo);
-//  
+  
   //从SNV中获取最新的配置信息
   VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
   get_customerInfo(&last_customerStorageBeaconInfo);
