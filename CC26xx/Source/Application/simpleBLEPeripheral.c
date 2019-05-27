@@ -561,6 +561,13 @@ static void SimpleBLEPeripheral_init(void)
   //从SNV中获取最新的配置信息
   VOID memset(&last_customerStorageBeaconInfo, 0x00, sizeof(last_customerStorageBeaconInfo));
   get_customerInfo(&last_customerStorageBeaconInfo);
+  if((last_customerStorageBeaconInfo.major ==0)
+     && (last_customerStorageBeaconInfo.minor ==0)
+     && (strlen((char const*)(last_customerStorageBeaconInfo.dev_name)) == 0))
+  {//第一次上电，配置为默认值
+    fill_customerInfo_byDefault(&last_customerStorageBeaconInfo);
+    set_customerInfo(&last_customerStorageBeaconInfo);
+  }
   
   
     //注册串口接收数据监测事件
