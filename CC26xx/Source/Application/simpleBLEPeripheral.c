@@ -623,7 +623,8 @@ static void SimpleBLEPeripheral_init(void)
     GAPRole_SetParameter(GAPROLE_ADVERT_DATA, sizeof(advertData),
                          advertData);//设定广播的数据
 
-    uint8_t advType = GAP_ADTYPE_ADV_SCAN_IND; //use scannable undirected adv
+    //uint8_t advType = GAP_ADTYPE_ADV_SCAN_IND; //use scannable undirected adv
+    uint8_t advType = GAP_ADTYPE_ADV_IND;
     GAPRole_SetParameter(GAPROLE_ADV_EVENT_TYPE, sizeof(uint8_t), &advType);
     
     
